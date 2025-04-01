@@ -158,4 +158,78 @@ if (heroText) {
     }
 
     typeWriter();
-} 
+}
+
+// Google Analytics Event Tracking
+document.addEventListener('DOMContentLoaded', function() {
+    // Track page scroll depth
+    let maxScroll = 0;
+    window.addEventListener('scroll', function() {
+        const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+        if (scrollPercent > maxScroll) {
+            maxScroll = scrollPercent;
+            // Track at 25%, 50%, 75%, and 100% scroll
+            if (maxScroll >= 25 && maxScroll < 50) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '25%'
+                });
+            } else if (maxScroll >= 50 && maxScroll < 75) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '50%'
+                });
+            } else if (maxScroll >= 75 && maxScroll < 100) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '75%'
+                });
+            } else if (maxScroll >= 100) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '100%'
+                });
+            }
+        }
+    });
+
+    // Track time on page
+    let startTime = new Date().getTime();
+    window.addEventListener('beforeunload', function() {
+        let endTime = new Date().getTime();
+        let timeSpent = Math.round((endTime - startTime) / 1000); // Convert to seconds
+        gtag('event', 'time_spent', {
+            'event_category': 'engagement',
+            'event_label': timeSpent + ' seconds'
+        });
+    });
+
+    // Track navigation clicks
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+            gtag('event', 'navigation_click', {
+                'event_category': 'navigation',
+                'event_label': this.getAttribute('href') || 'unknown'
+            });
+        });
+    });
+
+    // Track form interactions
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function() {
+            gtag('event', 'form_submission', {
+                'event_category': 'conversion',
+                'event_label': this.getAttribute('id') || 'unknown_form'
+            });
+        });
+    });
+
+    // Track video interactions
+    const video = document.querySelector('iframe[src*="youtube.com"]');
+    if (video) {
+        gtag('event', 'video_present', {
+            'event_category': 'engagement',
+            'event_label': 'video_loaded'
+        });
+    }
+}); 
