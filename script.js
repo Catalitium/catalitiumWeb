@@ -160,66 +160,15 @@ if (heroText) {
     typeWriter();
 }
 
-// Google Analytics Event Tracking
+// Enhanced Google Analytics Tracking
 document.addEventListener('DOMContentLoaded', function() {
-    // Track page scroll depth
-    let maxScroll = 0;
-    window.addEventListener('scroll', function() {
-        const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
-        if (scrollPercent > maxScroll) {
-            maxScroll = scrollPercent;
-            // Track at 25%, 50%, 75%, and 100% scroll
-            if (maxScroll >= 25 && maxScroll < 50) {
-                gtag('event', 'scroll_depth', {
-                    'event_category': 'engagement',
-                    'event_label': '25%'
-                });
-            } else if (maxScroll >= 50 && maxScroll < 75) {
-                gtag('event', 'scroll_depth', {
-                    'event_category': 'engagement',
-                    'event_label': '50%'
-                });
-            } else if (maxScroll >= 75 && maxScroll < 100) {
-                gtag('event', 'scroll_depth', {
-                    'event_category': 'engagement',
-                    'event_label': '75%'
-                });
-            } else if (maxScroll >= 100) {
-                gtag('event', 'scroll_depth', {
-                    'event_category': 'engagement',
-                    'event_label': '100%'
-                });
-            }
-        }
-    });
-
-    // Track time on page
-    let startTime = new Date().getTime();
-    window.addEventListener('beforeunload', function() {
-        let endTime = new Date().getTime();
-        let timeSpent = Math.round((endTime - startTime) / 1000); // Convert to seconds
-        gtag('event', 'time_spent', {
-            'event_category': 'engagement',
-            'event_label': timeSpent + ' seconds'
-        });
-    });
-
-    // Track navigation clicks
-    document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            gtag('event', 'navigation_click', {
-                'event_category': 'navigation',
-                'event_label': this.getAttribute('href') || 'unknown'
-            });
-        });
-    });
-
-    // Track form interactions
-    document.querySelectorAll('form').forEach(form => {
-        form.addEventListener('submit', function() {
-            gtag('event', 'form_submission', {
+    // 1. Conversion Goals Tracking
+    // Track PDF downloads
+    document.querySelectorAll('a[href$=".pdf"]').forEach(pdfLink => {
+        pdfLink.addEventListener('click', function() {
+            gtag('event', 'pdf_download', {
                 'event_category': 'conversion',
-                'event_label': this.getAttribute('id') || 'unknown_form'
+                'event_label': this.getAttribute('href').split('/').pop()
             });
         });
     });
@@ -227,9 +176,94 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track video interactions
     const video = document.querySelector('iframe[src*="youtube.com"]');
     if (video) {
-        gtag('event', 'video_present', {
-            'event_category': 'engagement',
-            'event_label': 'video_loaded'
+        // Track when video is in viewport
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gtag('event', 'video_view', {
+                        'event_category': 'conversion',
+                        'event_label': 'video_in_view'
+                    });
+                }
+            });
+        });
+        videoObserver.observe(video);
+    }
+
+    // 2. Content Engagement Tracking
+    // Track section visibility
+    document.querySelectorAll('section').forEach(section => {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gtag('event', 'section_view', {
+                        'event_category': 'content_engagement',
+                        'event_label': section.id || 'unnamed_section'
+                    });
+                }
+            });
+        });
+        sectionObserver.observe(section);
+    });
+
+    // Track FAQ interactions
+    document.querySelectorAll('.faq-item').forEach(faq => {
+        faq.addEventListener('click', function() {
+            gtag('event', 'faq_interaction', {
+                'event_category': 'content_engagement',
+                'event_label': this.querySelector('h3')?.textContent || 'unknown_faq'
+            });
+        });
+    });
+
+    // 3. User Journey Tracking
+    // Track entry point
+    gtag('event', 'page_entry', {
+        'event_category': 'user_journey',
+        'event_label': window.location.pathname
+    });
+
+    // Track navigation flow
+    let previousPage = document.referrer;
+    if (previousPage) {
+        gtag('event', 'navigation_flow', {
+            'event_category': 'user_journey',
+            'event_label': previousPage
+        });
+    }
+
+    // Track exit intent
+    document.addEventListener('mouseout', function(e) {
+        if (e.clientY <= 0) {
+            gtag('event', 'exit_intent', {
+                'event_category': 'user_journey',
+                'event_label': 'top_of_page'
+            });
+        }
+    });
+
+    // 4. Device & Location Analytics
+    // Track device information
+    gtag('event', 'device_info', {
+        'event_category': 'technical',
+        'event_label': {
+            'screen_size': `${window.innerWidth}x${window.innerHeight}`,
+            'device_type': /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/.test(navigator.userAgent) ? 'mobile' : 'desktop',
+            'browser': navigator.userAgent
+        }
+    });
+
+    // Track language preference
+    gtag('event', 'language_preference', {
+        'event_category': 'technical',
+        'event_label': navigator.language
+    });
+
+    // Track connection speed
+    if ('connection' in navigator) {
+        gtag('event', 'connection_speed', {
+            'event_category': 'technical',
+            'event_label': navigator.connection.effectiveType || 'unknown'
         });
     }
 }); 
