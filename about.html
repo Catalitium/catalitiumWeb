@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Catalitium - RPA & Cloud Solutions</title>
+    <meta name="description" content="Learn about Catalitium, a leading provider of RPA solutions and cloud computing services. We help businesses transform through automation and digital innovation.">
+    <meta name="keywords" content="about Catalitium, RPA company, cloud computing, digital transformation, automation experts">
+    <meta name="author" content="Catalitium">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://catalitium.com/about">
+    <meta property="og:title" content="About Us | Catalitium - RPA & Cloud Solutions">
+    <meta property="og:description" content="Learn about Catalitium, a leading provider of RPA solutions and cloud computing services. We help businesses transform through automation and digital innovation.">
+    <meta property="og:image" content="https://catalitium.com/assets/images/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://catalitium.com/about">
+    <meta property="twitter:title" content="About Us | Catalitium - RPA & Cloud Solutions">
+    <meta property="twitter:description" content="Learn about Catalitium, a leading provider of RPA solutions and cloud computing services. We help businesses transform through automation and digital innovation.">
+    <meta property="twitter:image" content="https://catalitium.com/assets/images/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Catalitium Logo">
+            </a>
+            <div class="nav-links">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html" class="active">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="language-toggle">
+                <button id="languageToggle" class="language-btn">
+                    <img src="assets/images/es-flag.png" alt="Switch to Spanish" class="flag-icon">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="about-page">
+        <section class="hero-section">
+            <h1>About Catalitium</h1>
+            <p>Empowering businesses through automation and digital innovation</p>
+        </section>
+
+        <section class="about-content">
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>Catalitium was founded with a vision to transform businesses through automation and digital innovation. We combine expertise in RPA, cloud computing, and digital transformation to help companies streamline their operations and achieve sustainable growth.</p>
+                
+                <h2>Our Mission</h2>
+                <p>To empower businesses with cutting-edge automation solutions and cloud technologies, enabling them to focus on what matters most - innovation and growth.</p>
+                
+                <h2>Our Values</h2>
+                <ul>
+                    <li>Innovation: Constantly exploring new technologies and solutions</li>
+                    <li>Excellence: Delivering high-quality results in every project</li>
+                    <li>Collaboration: Working closely with clients to achieve their goals</li>
+                    <li>Sustainability: Promoting environmentally conscious business practices</li>
+                </ul>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-card">
+                    <h3>Years Experience</h3>
+                    <p>5+</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Projects Completed</h3>
+                    <p>50+</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Client Satisfaction</h3>
+                    <p>98%</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Join Us in Shaping the Future</h2>
+            <p>Be part of our journey in transforming businesses through technology.</p>
+            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Catalitium</h3>
+                <p>Transforming businesses through automation and digital solutions.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@catalitium.com</p>
+                <p>Phone: +34 XXX XXX XXX</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Catalitium. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N8G6ZYS32D');
+
+        // Track about page interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track section views
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        gtag('event', 'section_view', {
+                            'event_category': 'about',
+                            'event_label': entry.target.querySelector('h2').textContent,
+                            'value': 1
+                        });
+                    }
+                });
+            });
+
+            document.querySelectorAll('.about-content section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Track CTA clicks
+            document.querySelectorAll('.cta-section .btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    gtag('event', 'cta_click', {
+                        'event_category': 'about',
+                        'event_label': 'contact_us',
+                        'value': 1
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html> 

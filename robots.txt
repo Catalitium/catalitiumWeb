@@ -1,0 +1,102 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.catalitium.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /assets/fonts/
+Disallow: /assets/images/
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /build/
+
+# Disallow specific file types
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.php$
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.ini$
+Disallow: /*.config$
+Disallow: /*.env$
+
+# Disallow specific paths
+Disallow: /error/
+Disallow: /404.html
+Disallow: /500.html
+Disallow: /503.html
+Disallow: /403.html
+Disallow: /401.html
+Disallow: /400.html
+
+# Crawl-delay for specific bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: Baiduspider
+Crawl-delay: 10
+
+User-agent: Bingbot
+Crawl-delay: 10
+
+User-agent: Googlebot
+Crawl-delay: 10
+
+User-agent: YandexBot
+Crawl-delay: 10
+
+# Block specific bots
+User-agent: BadBot
+Disallow: /
+
+User-agent: EvilBot
+Disallow: /
+
+User-agent: SpamBot
+Disallow: /
+
+# Allow specific bots with custom rules
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Crawl-delay: 1
+
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 1
+
+# Block specific IP ranges
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /assets/fonts/
+Disallow: /assets/images/
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /build/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.php$
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.ini$
+Disallow: /*.config$
+Disallow: /*.env$
+Disallow: /error/
+Disallow: /404.html
+Disallow: /500.html
+Disallow: /503.html
+Disallow: /403.html
+Disallow: /401.html
+Disallow: /400.html 

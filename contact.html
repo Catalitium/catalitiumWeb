@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Catalitium - RPA & Cloud Solutions</title>
+    <meta name="description" content="Get in touch with Catalitium for RPA solutions, cloud computing services, and digital transformation consulting. We're here to help transform your business.">
+    <meta name="keywords" content="contact Catalitium, RPA consulting, cloud computing services, digital transformation, business automation">
+    <meta name="author" content="Catalitium">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://catalitium.com/contact">
+    <meta property="og:title" content="Contact Us | Catalitium - RPA & Cloud Solutions">
+    <meta property="og:description" content="Get in touch with Catalitium for RPA solutions, cloud computing services, and digital transformation consulting. We're here to help transform your business.">
+    <meta property="og:image" content="https://catalitium.com/assets/images/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://catalitium.com/contact">
+    <meta property="twitter:title" content="Contact Us | Catalitium - RPA & Cloud Solutions">
+    <meta property="twitter:description" content="Get in touch with Catalitium for RPA solutions, cloud computing services, and digital transformation consulting. We're here to help transform your business.">
+    <meta property="twitter:image" content="https://catalitium.com/assets/images/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Catalitium Logo">
+            </a>
+            <div class="nav-links">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="language-toggle">
+                <button id="languageToggle" class="language-btn">
+                    <img src="assets/images/es-flag.png" alt="Switch to Spanish" class="flag-icon">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <section class="hero-section">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team to discuss your business needs</p>
+        </section>
+
+        <section class="contact-content">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Ready to transform your business? Contact us today to discuss how we can help.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>info@catalitium.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p>+34 XXX XXX XXX</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Location</h3>
+                        <p>Madrid, Spain</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Send us a Message</h2>
+                <form id="contactForm" onsubmit="return handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interest</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="rpa">RPA Solutions</option>
+                            <option value="cloud">Cloud Computing</option>
+                            <option value="digital">Digital Transformation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Catalitium</h3>
+                <p>Transforming businesses through automation and digital solutions.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@catalitium.com</p>
+                <p>Phone: +34 XXX XXX XXX</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Catalitium. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N8G6ZYS32D');
+
+        // Track contact form interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            
+            // Track form field focus
+            form.querySelectorAll('input, select, textarea').forEach(field => {
+                field.addEventListener('focus', function() {
+                    gtag('event', 'form_field_focus', {
+                        'event_category': 'contact',
+                        'event_label': this.id,
+                        'value': 1
+                    });
+                });
+            });
+
+            // Track form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Track form submission
+                gtag('event', 'form_submission', {
+                    'event_category': 'contact',
+                    'event_label': 'contact_form',
+                    'value': 1,
+                    'form_data': data
+                });
+
+                // Show success message
+                alert('Thank you for your message. We will get back to you soon!');
+                form.reset();
+            });
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html> 

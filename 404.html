@@ -4,22 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | Catalitium</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="The page you're looking for doesn't exist. Catalitium provides RPA solutions, cloud computing, and digital transformation services.">
+    <meta name="keywords" content="404, page not found, Catalitium, RPA, cloud computing, digital transformation">
+    <meta name="author" content="Catalitium">
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://catalitium.com/404">
+    <meta property="og:title" content="404 - Page Not Found | Catalitium">
+    <meta property="og:description" content="The page you're looking for doesn't exist. Catalitium provides RPA solutions, cloud computing, and digital transformation services.">
+    <meta property="og:image" content="https://catalitium.com/assets/images/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://catalitium.com/404">
+    <meta property="twitter:title" content="404 - Page Not Found | Catalitium">
+    <meta property="twitter:description" content="The page you're looking for doesn't exist. Catalitium provides RPA solutions, cloud computing, and digital transformation services.">
+    <meta property="twitter:image" content="https://catalitium.com/assets/images/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-gray-50 dark:bg-gray-900">
-    <div class="min-h-screen flex items-center justify-center px-4">
-        <div class="max-w-md w-full text-center">
-            <div class="mb-8">
-                <i class="fas fa-exclamation-circle text-6xl text-primary"></i>
-            </div>
-            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">404</h1>
-            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Page Not Found</h2>
-            <p class="text-gray-600 dark:text-gray-400 mb-8">The page you're looking for doesn't exist or has been moved.</p>
-            <a href="/" class="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                Return to Home
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Catalitium Logo">
             </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="language-toggle">
+                <button id="languageToggle" class="language-btn">
+                    <img src="assets/images/es-flag.png" alt="Switch to Spanish" class="flag-icon">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="error-page">
+        <div class="error-content">
+            <h1>404 - Page Not Found</h1>
+            <p>The page you're looking for doesn't exist or has been moved.</p>
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+                <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Catalitium</h3>
+                <p>Transforming businesses through automation and digital solutions.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@catalitium.com</p>
+                <p>Phone: +34 XXX XXX XXX</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Catalitium. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N8G6ZYS32D');
+    </script>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
 </body>
 </html> 

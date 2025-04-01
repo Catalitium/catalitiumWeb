@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Catalitium - RPA & Cloud Solutions</title>
+    <meta name="description" content="Catalitium provides comprehensive RPA solutions, cloud computing services, and digital transformation consulting. Streamline your business operations with our automation expertise.">
+    <meta name="keywords" content="RPA services, cloud computing, digital transformation, business automation, Catalitium">
+    <meta name="author" content="Catalitium">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://catalitium.com/services">
+    <meta property="og:title" content="Our Services | Catalitium - RPA & Cloud Solutions">
+    <meta property="og:description" content="Catalitium provides comprehensive RPA solutions, cloud computing services, and digital transformation consulting. Streamline your business operations with our automation expertise.">
+    <meta property="og:image" content="https://catalitium.com/assets/images/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://catalitium.com/services">
+    <meta property="twitter:title" content="Our Services | Catalitium - RPA & Cloud Solutions">
+    <meta property="twitter:description" content="Catalitium provides comprehensive RPA solutions, cloud computing services, and digital transformation consulting. Streamline your business operations with our automation expertise.">
+    <meta property="twitter:image" content="https://catalitium.com/assets/images/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Catalitium Logo">
+            </a>
+            <div class="nav-links">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="language-toggle">
+                <button id="languageToggle" class="language-btn">
+                    <img src="assets/images/es-flag.png" alt="Switch to Spanish" class="flag-icon">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="services-page">
+        <section class="hero-section">
+            <h1>Our Services</h1>
+            <p>Transform your business with our comprehensive automation and cloud solutions</p>
+        </section>
+
+        <section class="services-grid">
+            <div class="service-card">
+                <h2>RPA Solutions</h2>
+                <p>Automate repetitive tasks and streamline your business processes with our cutting-edge RPA solutions.</p>
+                <ul>
+                    <li>Process Automation</li>
+                    <li>Workflow Optimization</li>
+                    <li>Custom RPA Development</li>
+                    <li>RPA Training & Support</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Cloud Computing</h2>
+                <p>Leverage the power of cloud technology to scale your business operations efficiently.</p>
+                <ul>
+                    <li>Cloud Migration</li>
+                    <li>Cloud Architecture</li>
+                    <li>Cloud Security</li>
+                    <li>Cloud Optimization</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary">Learn More</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Digital Transformation</h2>
+                <p>Modernize your business with our comprehensive digital transformation services.</p>
+                <ul>
+                    <li>Process Digitization</li>
+                    <li>Digital Strategy</li>
+                    <li>Technology Integration</li>
+                    <li>Change Management</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary">Explore</a>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Contact us today to discuss how we can help streamline your operations.</p>
+            <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Catalitium</h3>
+                <p>Transforming businesses through automation and digital solutions.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@catalitium.com</p>
+                <p>Phone: +34 XXX XXX XXX</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Catalitium. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N8G6ZYS32D');
+
+        // Track service page interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track service card views
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        gtag('event', 'service_card_view', {
+                            'event_category': 'services',
+                            'event_label': entry.target.querySelector('h2').textContent,
+                            'value': 1
+                        });
+                    }
+                });
+            });
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Track CTA clicks
+            document.querySelectorAll('.cta-section .btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    gtag('event', 'cta_click', {
+                        'event_category': 'services',
+                        'event_label': 'contact_us',
+                        'value': 1
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html> 
