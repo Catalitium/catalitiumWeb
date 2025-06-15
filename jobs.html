@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find your dream job with Catalitium's Job Explorer. Real-time salary insights, remote opportunities, and career growth across global markets. Start your job search today!">
+    <meta name="keywords" content="job search, career opportunities, salary insights, remote jobs, tech jobs, job explorer, career growth, employment, job market, professional development">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="Catalitium">
+    <meta name="theme-color" content="#1a73e8">
+    <meta property="og:title" content="Job Explorer - Find Your Next Career Move | Catalitium">
+    <meta property="og:description" content="Discover job opportunities with real-time salary insights. Search across countries, explore remote positions, and find your perfect career match.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://catalitium.com/jobs">
+    <meta property="og:image" content="https://catalitium.com/images/job-explorer-og.jpg">
+    <meta property="og:site_name" content="Catalitium">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Job Explorer - Catalitium">
+    <meta name="twitter:description" content="Find your next career opportunity with real-time salary insights and global job listings.">
+    <meta name="twitter:image" content="https://catalitium.com/images/job-explorer-og.jpg">
+    <link rel="canonical" href="https://catalitium.com/jobs">
+    <title>Job Explorer - Find Your Next Career Move | Catalitium</title>
+
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Catalitium Job Explorer",
+        "url": "https://catalitium.com/jobs",
+        "description": "Find your dream job with real-time salary insights and global opportunities",
+        "applicationCategory": "JobSearchApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+        }
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KBJC78F');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            'page_title': 'Job Explorer',
+            'page_location': window.location.href,
+            'page_path': window.location.pathname,
+            'send_page_view': true,
+            'custom_map': {
+                'dimension1': 'user_type',
+                'dimension2': 'job_category',
+                'dimension3': 'search_term',
+                'metric1': 'search_results_count',
+                'metric2': 'time_to_find_job'
+            }
+        });
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Enhanced Job Explorer Styles */
+        .job-explorer {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: calc(100vh - 200px);
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .search-header h1 {
+            color: #1a73e8;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .search-header p {
+            color: #5f6368;
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .search-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-controls select,
+        .search-controls input {
+            padding: 1.25rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-controls select:focus,
+        .search-controls input:focus {
+            border-color: #1a73e8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.15);
+            background: white;
+            transform: translateY(-1px);
+        }
+
+        .sort-controls {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .sort-controls select {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            font-size: 1rem;
+            color: #5f6368;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sort-controls select:hover {
+            border-color: #1a73e8;
+            box-shadow: 0 2px 4px rgba(26, 115, 232, 0.1);
+        }
+
+        .job-results {
+            display: grid;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #1a73e8;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            border-color: #1a73e8;
+        }
+
+        .job-card:hover::before {
+            opacity: 1;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-header h3 {
+            color: #1a73e8;
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .remote-badge {
+            background: #e8f0fe;
+            color: #1a73e8;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .job-type-badge {
+            background: #f1f3f4;
+            color: #5f6368;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .company {
+            margin-bottom: 1.5rem;
+        }
+
+        .company strong {
+            color: #202124;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .location {
+            color: #5f6368;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .location::before {
+            content: "📍";
+            font-size: 1.1rem;
+        }
+
+        .job-details {
+            display: flex;
+            gap: 1.5rem;
+            color: #5f6368;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .job-actions {
+            display: flex;
+            justify-content: center;
+        }
+
+        .view-job-btn {
+            background: #1a73e8;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.2);
+        }
+
+        .view-job-btn:hover {
+            background: #1557b0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(26, 115, 232, 0.3);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .load-more-btn {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.2);
+        }
+
+        .load-more-btn:hover {
+            background: #1557b0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(26, 115, 232, 0.3);
+        }
+
+        .job-count {
+            color: #5f6368;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem;
+            color: #5f6368;
+            background: #f8f9fa;
+            border-radius: 16px;
+            margin: 2rem auto;
+            max-width: 700px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .salary-stats {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .salary-stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1a73e8, #34a853);
+        }
+
+        .salary-stats:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .salary-range h3 {
+            color: #1a73e8;
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .salary-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .metric {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #1a73e8;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .metric:hover {
+            background: #e8f0fe;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .metric:hover::after {
+            transform: scaleX(1);
+        }
+
+        .metric .label {
+            display: block;
+            color: #5f6368;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric .value {
+            display: block;
+            color: #1a73e8;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .search-controls {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .badge-container {
+                flex-wrap: wrap;
+            }
+
+            .view-job-btn {
+                width: 100%;
+            }
+
+            .salary-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .search-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .search-header p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBJC78F"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">Catalitium</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/jobs.html" class="active">Jobs</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="job-explorer">
+            <div class="search-container">
+                <div class="search-header">
+                    <h1>Job Explorer</h1>
+                    <p>Find your next opportunity and explore salary insights</p>
+                </div>
+
+                <div class="search-controls">
+                    <select id="countrySelect">
+                        <option value="">Select a country</option>
+                    </select>
+                    <input type="text" id="jobInput" placeholder="Search by job title...">
+                </div>
+
+                <div class="sort-controls">
+                    <label for="sortBy">Sort by:</label>
+                    <select id="sortBy" onchange="updateUI()">
+                        <option value="date-desc">Newest First</option>
+                        <option value="date-asc">Oldest First</option>
+                        <option value="title-asc">Job Title (A-Z)</option>
+                        <option value="title-desc">Job Title (Z-A)</option>
+                        <option value="company-asc">Company (A-Z)</option>
+                        <option value="company-desc">Company (Z-A)</option>
+                    </select>
+                </div>
+
+                <div id="salaryOutput"></div>
+                <div id="jobResults"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Catalitium</h3>
+                <p>Your trusted partner in career growth and development.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@catalitium.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Catalitium. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

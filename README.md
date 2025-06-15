@@ -1,126 +1,71 @@
-# Catalitium - Digital Transformation Solutions
+# Catalitium Job Explorer
 
-Catalitium is a modern web platform showcasing digital transformation solutions, automation services, and cloud solutions. This repository contains the source code for the Catalitium website.
+A modern job search platform that provides real-time salary insights and global job opportunities. Built with a focus on user experience and performance.
 
 ## Features
 
-- Responsive design optimized for all devices
-- Modern UI components and animations
-- Multi-language support (English/Spanish)
-- Dark mode support
-- Form validation and handling
-- Google Analytics integration
-- Performance optimized assets
-- SEO friendly structure
+- 🔍 Real-time job search with advanced filtering
+- 💰 Salary insights by country and job title
+- 🌍 Global job opportunities
+- 🏠 Remote job detection
+- 📊 Sorting and filtering capabilities
+- 📱 Responsive design
+- 📈 Analytics integration
 
 ## Tech Stack
 
 - HTML5
-- CSS3 (with CSS Variables and Flexbox/Grid)
+- CSS3
 - JavaScript (ES6+)
-- Webpack for bundling and optimization
-- Babel for JavaScript transpilation
-- PostCSS for CSS processing
-- GSAP for animations
-- Intersection Observer API for scroll animations
+- Google Analytics 4
+- Google Tag Manager
 
 ## Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm (v6 or higher)
-
-### Installation
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/catalitium.git
+```
+
+2. Navigate to the project directory:
+```bash
 cd catalitium
 ```
 
-2. Install dependencies:
+3. Open `index.html` in your browser or use a local server:
 ```bash
-npm install
-```
+# Using Python
+python -m http.server 8000
 
-3. Start the development server:
-```bash
-npm run dev
-```
-
-4. Build for production:
-```bash
-npm run build
+# Using Node.js
+npx serve
 ```
 
 ## Project Structure
 
 ```
 catalitium/
-├── src/
-│   ├── js/
-│   │   ├── main.js
-│   │   └── utils.js
-│   ├── css/
-│   │   ├── base.css
-│   │   ├── layout.css
-│   │   └── components.css
-│   ├── images/
-│   ├── fonts/
-│   └── *.html
-├── dist/
-├── node_modules/
-├── package.json
-├── webpack.config.js
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js
+├── data/
+│   ├── jobs.csv
+│   └── salary.csv
+├── images/
+├── index.html
+├── jobs.html
 └── README.md
 ```
 
-## Development
+## Analytics Integration
 
-### Available Scripts
-
-- `npm start` - Start the development server
-- `npm run build` - Build for production
-- `npm run dev` - Start webpack dev server
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
-- `npm test` - Run tests
-
-### Code Style
-
-This project uses:
-- ESLint for JavaScript linting
-- Prettier for code formatting
-- Babel for JavaScript transpilation
-
-## Deployment
-
-The project can be deployed to any static hosting service. The build process creates optimized files in the `dist` directory.
-
-### Build Process
-
-1. JavaScript files are bundled and minified
-2. CSS is processed and optimized
-3. Images are optimized
-4. HTML files are processed with optimized assets
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
-
-## Performance
-
-The website is optimized for performance with:
-- Lazy loading of images
-- Code splitting
-- Asset optimization
-- Caching strategies
-- Performance monitoring
+The project uses Google Analytics 4 for tracking:
+- User interactions
+- Search patterns
+- Job clicks
+- Performance metrics
+- Error tracking
 
 ## Contributing
 
@@ -136,6 +81,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Catalitium - [@catalitium](https://twitter.com/catalitium)
-
+Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
 Project Link: [https://github.com/yourusername/catalitium](https://github.com/yourusername/catalitium) 
