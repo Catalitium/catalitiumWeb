@@ -1,24 +1,28 @@
 # Catalitium Job Explorer
 
-A modern job search platform that provides real-time salary insights and global job opportunities. Built with a focus on user experience and performance.
+A modern job search platform with real-time salary insights and global job opportunities.
 
 ## Features
 
-- 🔍 Real-time job search with advanced filtering
-- 💰 Salary insights by country and job title
-- 🌍 Global job opportunities
-- 🏠 Remote job detection
-- 📊 Sorting and filtering capabilities
-- 📱 Responsive design
-- 📈 Analytics integration
+- Real-time salary insights
+- Global job listings
+- Remote opportunities
+- Career growth tracking
+- Job market analytics
+- Mobile-first responsive design
+- Multi-language support (English/Spanish)
+- Advanced search and filtering
+- Salary range visualization
+- Company insights
 
 ## Tech Stack
 
 - HTML5
 - CSS3
 - JavaScript (ES6+)
-- Google Analytics 4
+- Google Analytics
 - Google Tag Manager
+- CSV Data Integration
 
 ## Getting Started
 
@@ -41,6 +45,8 @@ python -m http.server 8000
 npx serve
 ```
 
+4. Visit `http://localhost:8000` in your browser
+
 ## Project Structure
 
 ```
@@ -53,19 +59,26 @@ catalitium/
 │   ├── jobs.csv
 │   └── salary.csv
 ├── images/
+├── assets/
 ├── index.html
 ├── jobs.html
 └── README.md
 ```
 
-## Analytics Integration
+## Data Sources
 
-The project uses Google Analytics 4 for tracking:
+The job and salary data is stored in CSV format:
+- `jobs.csv`: Contains job listings with details like title, company, location, etc.
+- `salary.csv`: Contains salary information for different positions and locations
+
+## Analytics
+
+The platform uses Google Analytics and Google Tag Manager to track:
+- Job searches
+- Salary insights views
 - User interactions
 - Search patterns
-- Job clicks
-- Performance metrics
-- Error tracking
+- Country-specific analytics
 
 ## Contributing
 
@@ -81,5 +94,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
+Catalitium - info@catalitium.com
+
 Project Link: [https://github.com/yourusername/catalitium](https://github.com/yourusername/catalitium) 

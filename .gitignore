@@ -9,11 +9,9 @@ yarn.lock
 # Environment files
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
 
-# IDE and editor files
+# IDE and Editor files
 .idea/
 .vscode/
 *.swp
@@ -21,11 +19,11 @@ yarn.lock
 .DS_Store
 Thumbs.db
 
-# Build and distribution
+# Build and Distribution
 dist/
 build/
-out/
-.next/
+*.min.js
+*.min.css
 
 # Logs
 logs/
@@ -45,9 +43,35 @@ coverage/
 
 # System Files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db 
+Thumbs.db
+desktop.ini
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Local development
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug files
+.debug/
+debug.log
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity 

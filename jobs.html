@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N8G6ZYS32D');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Find your dream job with Catalitium's Job Explorer. Real-time salary insights, remote opportunities, and career growth across global markets. Start your job search today!">
-    <meta name="keywords" content="job search, career opportunities, salary insights, remote jobs, tech jobs, job explorer, career growth, employment, job market, professional development">
+    <meta name="keywords" content="job search, career opportunities, salary insights, remote jobs, tech jobs, job explorer, career growth, employment, job market, professional development, tech careers, IT jobs, software jobs, data science jobs, AI jobs, machine learning jobs, cloud jobs, cybersecurity jobs">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Catalitium">
     <meta name="theme-color" content="#1a73e8">
     <meta property="og:title" content="Job Explorer - Find Your Next Career Move | Catalitium">
-    <meta property="og:description" content="Discover job opportunities with real-time salary insights. Search across countries, explore remote positions, and find your perfect career match.">
+    <meta property="og:description" content="Find your dream job with Catalitium's Job Explorer. Real-time salary insights, remote opportunities, and career growth across global markets. Start your job search today!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://catalitium.com/jobs">
-    <meta property="og:image" content="https://catalitium.com/images/job-explorer-og.jpg">
+    <meta property="og:url" content="https://www.catalitium.com/jobs/">
+    <meta property="og:image" content="https://www.catalitium.com/images/job-explorer-og.jpg">
     <meta property="og:site_name" content="Catalitium">
+    <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Job Explorer - Catalitium">
-    <meta name="twitter:description" content="Find your next career opportunity with real-time salary insights and global job listings.">
-    <meta name="twitter:image" content="https://catalitium.com/images/job-explorer-og.jpg">
-    <link rel="canonical" href="https://catalitium.com/jobs">
+    <meta name="twitter:title" content="Job Explorer - Find Your Next Career Move | Catalitium">
+    <meta name="twitter:description" content="Find your dream job with Catalitium's Job Explorer. Real-time salary insights, remote opportunities, and career growth across global markets. Start your job search today!">
+    <meta name="twitter:image" content="https://www.catalitium.com/images/job-explorer-og.jpg">
+    <link rel="canonical" href="https://www.catalitium.com/jobs/">
     <title>Job Explorer - Find Your Next Career Move | Catalitium</title>
+    <meta name="title" content="Job Explorer - Find Your Next Career Move | Catalitium">
 
     <!-- Schema.org markup for Google -->
     <script type="application/ld+json">
@@ -27,7 +38,7 @@
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Catalitium Job Explorer",
-        "url": "https://catalitium.com/jobs",
+        "url": "https://www.catalitium.com/jobs",
         "description": "Find your dream job with real-time salary insights and global opportunities",
         "applicationCategory": "JobSearchApplication",
         "operatingSystem": "Any",
@@ -40,7 +51,14 @@
             "@type": "AggregateRating",
             "ratingValue": "4.8",
             "ratingCount": "1250"
-        }
+        },
+        "featureList": [
+            "Real-time salary insights",
+            "Global job listings",
+            "Remote opportunities",
+            "Career growth tracking",
+            "Job market analytics"
+        ]
     }
     </script>
 
@@ -52,13 +70,13 @@
     })(window,document,'script','dataLayer','GTM-KBJC78F');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX', {
+        gtag('config', 'G-N8G6ZYS32D', {
             'page_title': 'Job Explorer',
             'page_location': window.location.href,
             'page_path': window.location.pathname,
@@ -67,10 +85,66 @@
                 'dimension1': 'user_type',
                 'dimension2': 'job_category',
                 'dimension3': 'search_term',
+                'dimension4': 'country',
+                'dimension5': 'search_frequency',
                 'metric1': 'search_results_count',
                 'metric2': 'time_to_find_job'
             }
         });
+
+        // Track page view
+        gtag('event', 'page_view', {
+            page_title: 'Job Explorer',
+            page_location: window.location.href,
+            page_path: window.location.pathname
+        });
+
+        // Track job searches with enhanced metrics
+        function trackJobSearch(searchTerm, country) {
+            gtag('event', 'job_search', {
+                search_term: searchTerm,
+                country: country,
+                search_results_count: document.querySelectorAll('.job-card').length,
+                dimension3: searchTerm,  // Search term dimension
+                dimension4: country,     // Country dimension
+                dimension5: 'daily'      // Search frequency dimension
+            });
+        }
+
+        // Track job views with country context
+        function trackJobView(jobTitle, company, location) {
+            gtag('event', 'job_view', {
+                job_title: jobTitle,
+                company: company,
+                location: location,
+                dimension4: location.split(',')[1]?.trim() || 'Unknown'  // Extract country from location
+            });
+        }
+
+        // Track salary insights with country context
+        function trackSalaryInsight(jobTitle, country) {
+            gtag('event', 'salary_insight_view', {
+                job_title: jobTitle,
+                country: country,
+                dimension4: country  // Country dimension
+            });
+        }
+
+        // Track search term popularity
+        function trackSearchTermPopularity(searchTerm) {
+            gtag('event', 'search_term_popularity', {
+                search_term: searchTerm,
+                dimension3: searchTerm  // Search term dimension
+            });
+        }
+
+        // Track country search popularity
+        function trackCountrySearchPopularity(country) {
+            gtag('event', 'country_search_popularity', {
+                country: country,
+                dimension4: country  // Country dimension
+            });
+        }
     </script>
 
     <link rel="stylesheet" href="css/style.css">
@@ -489,6 +563,152 @@
                 font-size: 1.1rem;
             }
         }
+
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .error-message {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .error-message i {
+            color: #e74c3c;
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .error-message button {
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .error-message button:hover {
+            background: #2980b9;
+        }
+
+        /* Simple Navbar Styles */
+        .navbar {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #5f6368;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #1a73e8;
+        }
+
+        .nav-link.active {
+            color: #1a73e8;
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #5f6368;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
@@ -497,52 +717,43 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="/">Catalitium</a>
+    <!-- Simple Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Catalitium</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/jobs.html" class="nav-link active">Jobs</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
             </div>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/jobs.html" class="active">Jobs</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main>
+    <!-- Main Content -->
+    <div id="mainContent" class="hidden">
         <section class="job-explorer">
             <div class="search-container">
                 <div class="search-header">
-                    <h1>Job Explorer</h1>
-                    <p>Find your next opportunity and explore salary insights</p>
+                    <h1 data-en="Job Explorer" data-es="Explorador de Trabajos">Job Explorer</h1>
+                    <p data-en="Find your dream job with real-time salary insights" data-es="Encuentra tu trabajo ideal con información salarial en tiempo real">Find your dream job with real-time salary insights</p>
                 </div>
 
                 <div class="search-controls">
-                    <select id="countrySelect">
-                        <option value="">Select a country</option>
+                    <select id="countrySelect" class="w-full">
+                        <option value="" data-en="All Countries" data-es="Todos los Países">All Countries</option>
                     </select>
-                    <input type="text" id="jobInput" placeholder="Search by job title...">
+                    <input type="text" id="jobTitleInput" placeholder="Enter job title..." class="w-full" data-en-placeholder="Enter job title..." data-es-placeholder="Ingresa el título del trabajo...">
                 </div>
 
-                <div class="sort-controls">
-                    <label for="sortBy">Sort by:</label>
-                    <select id="sortBy" onchange="updateUI()">
-                        <option value="date-desc">Newest First</option>
-                        <option value="date-asc">Oldest First</option>
-                        <option value="title-asc">Job Title (A-Z)</option>
-                        <option value="title-desc">Job Title (Z-A)</option>
-                        <option value="company-asc">Company (A-Z)</option>
-                        <option value="company-desc">Company (Z-A)</option>
-                    </select>
-                </div>
-
-                <div id="salaryOutput"></div>
-                <div id="jobResults"></div>
+                <div id="salaryInfo" class="mb-8"></div>
+                <div id="jobListings" class="job-results"></div>
             </div>
         </section>
-    </main>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -570,5 +781,11 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        // Simple mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
 </body>
 </html> 
