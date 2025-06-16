@@ -3,6 +3,48 @@ const darkModeToggle = document.getElementById('darkModeToggle');
 const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
 const html = document.documentElement;
 
+// Language toggle functionality
+const languageToggle = document.getElementById('languageToggle');
+const mobileLanguageToggle = document.getElementById('mobileLanguageToggle');
+let currentLang = localStorage.getItem('language') || 'en';
+
+// Function to update language
+function updateLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('language', lang);
+    
+    // Update all elements with data-en and data-es attributes
+    document.querySelectorAll('[data-en][data-es]').forEach(element => {
+        element.textContent = element.getAttribute(`data-${lang}`);
+    });
+    
+    // Update flag images
+    document.querySelectorAll('img[data-lang]').forEach(img => {
+        if (img.getAttribute('data-lang') === lang) {
+            img.classList.remove('hidden');
+        } else {
+            img.classList.add('hidden');
+        }
+    });
+}
+
+// Initialize language
+updateLanguage(currentLang);
+
+// Toggle language
+function toggleLanguage() {
+    const newLang = currentLang === 'en' ? 'es' : 'en';
+    updateLanguage(newLang);
+}
+
+// Add event listeners for language toggle
+if (languageToggle) {
+    languageToggle.addEventListener('click', toggleLanguage);
+}
+if (mobileLanguageToggle) {
+    mobileLanguageToggle.addEventListener('click', toggleLanguage);
+}
+
 // Check for saved dark mode preference
 if (localStorage.getItem('darkMode') === 'true' || 
     (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -248,22 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'event_category': 'technical',
         'event_label': {
             'screen_size': `${window.innerWidth}x${window.innerHeight}`,
-            'device_type': /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/.test(navigator.userAgent) ? 'mobile' : 'desktop',
-            'browser': navigator.userAgent
+            'user_agent': navigator.userAgent
         }
     });
-
-    // Track language preference
-    gtag('event', 'language_preference', {
-        'event_category': 'technical',
-        'event_label': navigator.language
-    });
-
-    // Track connection speed
-    if ('connection' in navigator) {
-        gtag('event', 'connection_speed', {
-            'event_category': 'technical',
-            'event_label': navigator.connection.effectiveType || 'unknown'
-        });
-    }
 }); 

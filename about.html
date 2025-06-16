@@ -1,169 +1,291 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Catalitium - RPA & Cloud Solutions</title>
-    <meta name="description" content="Learn about Catalitium, a leading provider of RPA solutions and cloud computing services. We help businesses transform through automation and digital innovation.">
-    <meta name="keywords" content="about Catalitium, RPA company, cloud computing, digital transformation, automation experts">
-    <meta name="author" content="Catalitium">
+    <meta name="description" content="Learn about Catalitium - Our mission, vision, and commitment to transforming businesses through innovative technology solutions.">
+    
+    <!-- Primary Meta Tags -->
+    <title>About Us | Catalitium - Leading Technology Solutions Provider</title>
+    <meta name="title" content="About Us | Catalitium - Leading Technology Solutions Provider">
+    <meta name="description" content="Learn about Catalitium's mission to transform businesses through innovative technology solutions, our expert team, and our commitment to excellence.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://catalitium.com/about">
-    <meta property="og:title" content="About Us | Catalitium - RPA & Cloud Solutions">
-    <meta property="og:description" content="Learn about Catalitium, a leading provider of RPA solutions and cloud computing services. We help businesses transform through automation and digital innovation.">
-    <meta property="og:image" content="https://catalitium.com/assets/images/logo.png">
-
+    <meta property="og:url" content="https://www.catalitium.com/about">
+    <meta property="og:title" content="About Us | Catalitium">
+    <meta property="og:description" content="Learn about Catalitium's mission to transform businesses through innovative technology solutions.">
+    <meta property="og:image" content="https://www.catalitium.com/images/og-image.jpg">
+    
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://catalitium.com/about">
-    <meta property="twitter:title" content="About Us | Catalitium - RPA & Cloud Solutions">
-    <meta property="twitter:description" content="Learn about Catalitium, a leading provider of RPA solutions and cloud computing services. We help businesses transform through automation and digital innovation.">
-    <meta property="twitter:image" content="https://catalitium.com/assets/images/logo.png">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <meta property="twitter:url" content="https://www.catalitium.com/about">
+    <meta property="twitter:title" content="About Us | Catalitium">
+    <meta property="twitter:description" content="Learn about Catalitium's mission to transform businesses through innovative technology solutions.">
+    <meta property="twitter:image" content="https://www.catalitium.com/images/twitter-card.jpg">
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.catalitium.com/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.catalitium.com/apple-touch-icon.png">
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    
+    <!-- Tailwind Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .dark .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .dark .loading {
+            background: #0f172a;
+        }
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3B82F6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .dark .loading-spinner {
+            border: 3px solid #1e293b;
+            border-top: 3px solid #3B82F6;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-<body>
-    <header class="header">
-        <nav class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="Catalitium Logo">
-            </a>
-            <div class="nav-links">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="about.html" class="active">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
+
+<body class="bg-white dark:bg-gray-900">
+    <!-- Loading Screen -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <span class="text-2xl font-bold text-primary dark:text-white">
+                            <i class="fas fa-robot mr-2"></i>Catalitium
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
+                    <a href="/about" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
+                    <a href="/services" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
+                    <a href="/contact" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
+                    <a href="/support" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Support</a>
+                    <a href="/terms-of-service" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Terms</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-            <div class="language-toggle">
-                <button id="languageToggle" class="language-btn">
-                    <img src="assets/images/es-flag.png" alt="Switch to Spanish" class="flag-icon">
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
+                <a href="/about" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
+                <a href="/services" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
+                <a href="/contact" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
+                <a href="/support" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Support</a>
+                <a href="/terms-of-service" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Terms</a>
+                <button id="mobileDarkModeToggle" class="w-full text-left px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                    <i class="fas fa-moon dark:hidden mr-2"></i>
+                    <i class="fas fa-sun hidden dark:block mr-2"></i>
+                    Toggle Dark Mode
                 </button>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main class="about-page">
-        <section class="hero-section">
-            <h1>About Catalitium</h1>
-            <p>Empowering businesses through automation and digital innovation</p>
-        </section>
-
-        <section class="about-content">
-            <div class="about-text">
-                <h2>Our Story</h2>
-                <p>Catalitium was founded with a vision to transform businesses through automation and digital innovation. We combine expertise in RPA, cloud computing, and digital transformation to help companies streamline their operations and achieve sustainable growth.</p>
-                
-                <h2>Our Mission</h2>
-                <p>To empower businesses with cutting-edge automation solutions and cloud technologies, enabling them to focus on what matters most - innovation and growth.</p>
-                
-                <h2>Our Values</h2>
-                <ul>
-                    <li>Innovation: Constantly exploring new technologies and solutions</li>
-                    <li>Excellence: Delivering high-quality results in every project</li>
-                    <li>Collaboration: Working closely with clients to achieve their goals</li>
-                    <li>Sustainability: Promoting environmentally conscious business practices</li>
-                </ul>
-            </div>
-
-            <div class="about-stats">
-                <div class="stat-card">
-                    <h3>Years Experience</h3>
-                    <p>5+</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Projects Completed</h3>
-                    <p>50+</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Client Satisfaction</h3>
-                    <p>98%</p>
-                </div>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">About Catalitium</h1>
+                <p class="text-xl md:text-2xl opacity-90" data-aos="fade-up" data-aos-delay="100">Empowering businesses through automation and digital innovation</p>
             </div>
         </section>
 
-        <section class="cta-section">
-            <h2>Join Us in Shaping the Future</h2>
-            <p>Be part of our journey in transforming businesses through technology.</p>
-            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        <!-- About Content -->
+        <section class="py-16 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="space-y-8" data-aos="fade-right">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Our Story</h2>
+                            <p class="text-gray-600 dark:text-gray-300">Catalitium was founded with a vision to transform businesses through automation and digital innovation. We combine expertise in RPA, cloud computing, and digital transformation to help companies streamline their operations and achieve sustainable growth.</p>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Our Mission</h2>
+                            <p class="text-gray-600 dark:text-gray-300">To empower businesses with cutting-edge automation solutions and cloud technologies, enabling them to focus on what matters most - innovation and growth.</p>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Our Values</h2>
+                            <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-lightbulb text-blue-600 mr-2"></i>
+                                    Innovation: Constantly exploring new technologies and solutions
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-star text-blue-600 mr-2"></i>
+                                    Excellence: Delivering high-quality results in every project
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-handshake text-blue-600 mr-2"></i>
+                                    Collaboration: Working closely with clients to achieve their goals
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-leaf text-blue-600 mr-2"></i>
+                                    Sustainability: Promoting environmentally conscious business practices
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-left">
+                        <div class="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg text-center transform hover:scale-105 transition-transform duration-300">
+                            <i class="fas fa-calendar-alt text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Years Experience</h3>
+                            <p class="text-3xl font-bold text-blue-600">5+</p>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg text-center transform hover:scale-105 transition-transform duration-300">
+                            <i class="fas fa-project-diagram text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Projects Completed</h3>
+                            <p class="text-3xl font-bold text-blue-600">50+</p>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg text-center transform hover:scale-105 transition-transform duration-300">
+                            <i class="fas fa-smile text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Client Satisfaction</h3>
+                            <p class="text-3xl font-bold text-blue-600">98%</p>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg text-center transform hover:scale-105 transition-transform duration-300">
+                            <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Team Members</h3>
+                            <p class="text-3xl font-bold text-blue-600">20+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Join Us in Shaping the Future</h2>
+                <p class="text-xl mb-8 opacity-90" data-aos="fade-up" data-aos-delay="100">Be part of our journey in transforming businesses through technology.</p>
+                <a href="contact.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300" data-aos="fade-up" data-aos-delay="200">Get in Touch</a>
+            </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Catalitium</h3>
-                <p>Transforming businesses through automation and digital solutions.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: info@catalitium.com</p>
-                <p>Phone: +34 XXX XXX XXX</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">Twitter</a>
-                    <a href="#" target="_blank">GitHub</a>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Catalitium</h3>
+                    <p class="text-gray-400">Transforming businesses through automation and digital solutions.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact</h3>
+                    <p class="text-gray-400">Email: catalitium@gmail.com</p>
+                    <p class="text-gray-400">Phone: +34 622156450 </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Catalitium. All rights reserved.</p>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Catalitium. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script src="js/main.js"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-N8G6ZYS32D');
-
-        // Track about page interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            // Track section views
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        gtag('event', 'section_view', {
-                            'event_category': 'about',
-                            'event_label': entry.target.querySelector('h2').textContent,
-                            'value': 1
-                        });
-                    }
-                });
-            });
-
-            document.querySelectorAll('.about-content section').forEach(section => {
-                observer.observe(section);
-            });
-
-            // Track CTA clicks
-            document.querySelectorAll('.cta-section .btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    gtag('event', 'cta_click', {
-                        'event_category': 'about',
-                        'event_label': 'contact_us',
-                        'value': 1
-                    });
-                });
-            });
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
         });
     </script>
-
-    <!-- Scripts -->
-    <script src="assets/js/script.js"></script>
 </body>
 </html> 

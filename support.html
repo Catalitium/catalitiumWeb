@@ -1,56 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support & FAQ | Catalitium</title>
-    <meta name="description" content="Get help and answers to frequently asked questions about Catalitium's RPA and automation solutions. Contact our support team for assistance.">
-    <meta name="keywords" content="support, FAQ, help, RPA support, automation support, Catalitium">
-    <meta name="author" content="Catalitium">
+    <meta name="description" content="Get support from Catalitium's expert team. Find answers to your questions, access documentation, and get help with our services.">
+    
+    <!-- Primary Meta Tags -->
+    <title>Support | Catalitium - Get Help & Documentation</title>
+    <meta name="title" content="Support | Catalitium - Get Help & Documentation">
+    <meta name="description" content="Get support from Catalitium's expert team. Find answers to your questions, access documentation, and get help with our services.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://catalitium.com/support">
-    <meta property="og:title" content="Support & FAQ | Catalitium">
-    <meta property="og:description" content="Get help and answers to frequently asked questions about Catalitium's RPA and automation solutions. Contact our support team for assistance.">
-    <meta property="og:image" content="https://catalitium.com/assets/images/logo.png">
-
+    <meta property="og:url" content="https://www.catalitium.com/support">
+    <meta property="og:title" content="Support | Catalitium">
+    <meta property="og:description" content="Get support from Catalitium's expert team. Find answers to your questions, access documentation, and get help with our services.">
+    <meta property="og:image" content="https://www.catalitium.com/images/og-image.jpg">
+    
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://catalitium.com/support">
-    <meta property="twitter:title" content="Support & FAQ | Catalitium">
-    <meta property="twitter:description" content="Get help and answers to frequently asked questions about Catalitium's RPA and automation solutions. Contact our support team for assistance.">
-    <meta property="twitter:image" content="https://catalitium.com/assets/images/logo.png">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <meta property="twitter:url" content="https://www.catalitium.com/support">
+    <meta property="twitter:title" content="Support | Catalitium">
+    <meta property="twitter:description" content="Get support from Catalitium's expert team. Find answers to your questions, access documentation, and get help with our services.">
+    <meta property="twitter:image" content="https://www.catalitium.com/images/twitter-card.jpg">
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.catalitium.com/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.catalitium.com/apple-touch-icon.png">
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    
+    <!-- Tailwind Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .dark .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .dark .loading {
+            background: #0f172a;
+        }
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3B82F6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .dark .loading-spinner {
+            border: 3px solid #1e293b;
+            border-top: 3px solid #3B82F6;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-<body>
-    <header class="header">
-        <nav class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="Catalitium Logo">
-            </a>
-            <div class="nav-links">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
+<body class="bg-white dark:bg-gray-900">
+    <!-- Loading Screen -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <span class="text-2xl font-bold text-primary dark:text-white">
+                            <i class="fas fa-robot mr-2"></i>Catalitium
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
+                    <a href="/about" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
+                    <a href="/services" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
+                    <a href="/contact" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-            <div class="language-toggle">
-                <button id="languageToggle" class="language-btn">
-                    <img src="assets/images/es-flag.png" alt="Switch to Spanish" class="flag-icon">
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
+                <a href="/about" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
+                <a href="/services" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
+                <a href="/contact" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
+                <button id="mobileDarkModeToggle" class="w-full text-left px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                    <i class="fas fa-moon dark:hidden mr-2"></i>
+                    <i class="fas fa-sun hidden dark:block mr-2"></i>
+                    Toggle Dark Mode
                 </button>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <main class="support-page">
         <section class="hero-section">
@@ -90,12 +193,12 @@
                 <div class="support-options">
                     <div class="support-option">
                         <h3>Email Support</h3>
-                        <p>support@catalitium.com</p>
+                        <p>catalitium@gmail.com</p>
                         <p>Response time: Within 24 hours</p>
                     </div>
                     <div class="support-option">
                         <h3>Phone Support</h3>
-                        <p>+34 XXX XXX XXX</p>
+                        <p>+34 622154650</p>
                         <p>Available: Mon-Fri, 9am-6pm CET</p>
                     </div>
                     <div class="support-option">
@@ -203,6 +306,54 @@
     </script>
 
     <!-- Scripts -->
-    <script src="assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out'
+        });
+
+        // Dark mode functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+        const html = document.documentElement;
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark'));
+        }
+
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMobileMenuOpen = false;
+
+        mobileMenuButton.addEventListener('click', () => {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.innerHTML = isMobileMenuOpen ? 
+                '<i class="fas fa-times text-gray-600 dark:text-gray-300"></i>' : 
+                '<i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>';
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loading');
+            loader.classList.add('hidden');
+        });
+    </script>
 </body>
 </html> 

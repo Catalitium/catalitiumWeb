@@ -1,100 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found - The requested page could not be found on Catalitium's website.">
+    
+    <!-- Primary Meta Tags -->
     <title>404 - Page Not Found | Catalitium</title>
-    <meta name="description" content="The page you're looking for doesn't exist. Catalitium provides RPA solutions, cloud computing, and digital transformation services.">
-    <meta name="keywords" content="404, page not found, Catalitium, RPA, cloud computing, digital transformation">
-    <meta name="author" content="Catalitium">
-    <meta name="robots" content="noindex, follow">
+    <meta name="title" content="404 - Page Not Found | Catalitium">
+    <meta name="description" content="The requested page could not be found. Return to Catalitium's homepage or contact us for assistance.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://catalitium.com/404">
+    <meta property="og:url" content="https://www.catalitium.com/404">
     <meta property="og:title" content="404 - Page Not Found | Catalitium">
-    <meta property="og:description" content="The page you're looking for doesn't exist. Catalitium provides RPA solutions, cloud computing, and digital transformation services.">
-    <meta property="og:image" content="https://catalitium.com/assets/images/logo.png">
-
+    <meta property="og:description" content="The requested page could not be found. Return to Catalitium's homepage or contact us for assistance.">
+    <meta property="og:image" content="https://www.catalitium.com/images/og-image.jpg">
+    
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://catalitium.com/404">
+    <meta property="twitter:url" content="https://www.catalitium.com/404">
     <meta property="twitter:title" content="404 - Page Not Found | Catalitium">
-    <meta property="twitter:description" content="The page you're looking for doesn't exist. Catalitium provides RPA solutions, cloud computing, and digital transformation services.">
-    <meta property="twitter:image" content="https://catalitium.com/assets/images/logo.png">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <meta property="twitter:description" content="The requested page could not be found. Return to Catalitium's homepage or contact us for assistance.">
+    <meta property="twitter:image" content="https://www.catalitium.com/images/twitter-card.jpg">
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.catalitium.com/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.catalitium.com/apple-touch-icon.png">
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    
+    <!-- Tailwind Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .dark .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .dark .loading {
+            background: #0f172a;
+        }
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3B82F6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .dark .loading-spinner {
+            border: 3px solid #1e293b;
+            border-top: 3px solid #3B82F6;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-<body>
-    <header class="header">
-        <nav class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="Catalitium Logo">
-            </a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#contact">Contact</a>
-            </div>
-            <div class="language-toggle">
-                <button id="languageToggle" class="language-btn">
-                    <img src="assets/images/es-flag.png" alt="Switch to Spanish" class="flag-icon">
-                </button>
-            </div>
-        </nav>
-    </header>
+<body class="bg-white dark:bg-gray-900">
+    <!-- Loading Screen -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
 
-    <main class="error-page">
-        <div class="error-content">
-            <h1>404 - Page Not Found</h1>
-            <p>The page you're looking for doesn't exist or has been moved.</p>
-            <div class="error-actions">
-                <a href="index.html" class="btn btn-primary">Return to Homepage</a>
-                <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
-            </div>
-        </div>
-    </main>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <span class="text-2xl font-bold text-primary dark:text-white">
+                            <i class="fas fa-robot mr-2"></i>Catalitium
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
+                    <a href="/about" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
+                    <a href="/services" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
+                    <a href="/contact" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Catalitium</h3>
-                <p>Transforming businesses through automation and digital solutions.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: info@catalitium.com</p>
-                <p>Phone: +34 XXX XXX XXX</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">Twitter</a>
-                    <a href="#" target="_blank">GitHub</a>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Catalitium. All rights reserved.</p>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
+                <a href="/about" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
+                <a href="/services" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
+                <a href="/contact" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
+                <button id="mobileDarkModeToggle" class="w-full text-left px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                    <i class="fas fa-moon dark:hidden mr-2"></i>
+                    <i class="fas fa-sun hidden dark:block mr-2"></i>
+                    Toggle Dark Mode
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <!-- 404 Content -->
+        <section class="min-h-[80vh] flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+            <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+                <div class="mb-8">
+                    <i class="fas fa-exclamation-circle text-8xl mb-4"></i>
+                    <h1 class="text-6xl md:text-7xl font-bold mb-4">404</h1>
+                    <h2 class="text-3xl md:text-4xl font-semibold mb-4">Page Not Found</h2>
+                    <p class="text-xl md:text-2xl opacity-90 mb-8">The page you're looking for doesn't exist or has been moved.</p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="index.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                        Return to Homepage
+                    </a>
+                    <a href="contact.html" class="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Catalitium</h3>
+                    <p class="text-gray-400">Transforming businesses through automation and digital solutions.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact</h3>
+                    <p class="text-gray-400">Email: info@catalitium.com</p>
+                    <p class="text-gray-400">Phone: +34 XXX XXX XXX</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Catalitium. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-N8G6ZYS32D');
-    </script>
-
     <!-- Scripts -->
-    <script src="assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
 </body>
 </html> 

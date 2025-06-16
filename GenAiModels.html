@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enhanced Meta Tags -->
+    <title>AI Model Selection Guide 2024 | Compare GPT-4, Claude, Gemini & More | Catalitium</title>
+    <meta name="description" content="Expert guide to choosing the right AI model in 2024. Compare GPT-4, Claude 3.7, Gemini 2.5, and more. Get detailed performance metrics, cost analysis, and use-case recommendations for optimal AI implementation.">
+    <meta name="keywords" content="AI model comparison, GPT-4, Claude 3.7, Gemini 2.5, AI model selection, LLM comparison, AI performance metrics, AI cost analysis, AI use cases, machine learning models">
+    <meta name="author" content="Catalitium">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.catalitium.com/GenAiModels">
+    <meta property="og:title" content="AI Model Selection Guide 2024 | Compare GPT-4, Claude, Gemini & More">
+    <meta property="og:description" content="Expert guide to choosing the right AI model in 2024. Compare GPT-4, Claude 3.7, Gemini 2.5, and more. Get detailed performance metrics, cost analysis, and use-case recommendations.">
+    <meta property="og:image" content="https://www.catalitium.com/images/ai-model-comparison-2024.jpg">
+    <meta property="og:site_name" content="Catalitium">
+    <meta property="article:published_time" content="2024-03-20T08:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-20T08:00:00+00:00">
+    <meta property="article:section" content="AI Technology">
+    <meta property="article:tag" content="AI, Machine Learning, GPT-4, Claude, Gemini">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.catalitium.com/GenAiModels">
+    <meta name="twitter:title" content="AI Model Selection Guide 2024 | Compare GPT-4, Claude, Gemini & More">
+    <meta name="twitter:description" content="Expert guide to choosing the right AI model in 2024. Compare GPT-4, Claude 3.7, Gemini 2.5, and more. Get detailed performance metrics and recommendations.">
+    <meta name="twitter:image" content="https://www.catalitium.com/images/ai-model-comparison-2024.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.catalitium.com/GenAiModels">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.catalitium.com/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.catalitium.com/apple-touch-icon.png">
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AI Model Selection Guide 2024 | Compare GPT-4, Claude, Gemini & More",
+        "description": "Expert guide to choosing the right AI model in 2024. Compare GPT-4, Claude 3.7, Gemini 2.5, and more. Get detailed performance metrics, cost analysis, and use-case recommendations.",
+        "image": "https://www.catalitium.com/images/ai-model-comparison-2024.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Catalitium",
+            "url": "https://www.catalitium.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Catalitium",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.catalitium.com/images/logo.png"
+            }
+        },
+        "datePublished": "2024-03-20T08:00:00+00:00",
+        "dateModified": "2024-03-20T08:00:00+00:00",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.catalitium.com/GenAiModels"
+        }
+    }
+    </script>
+    
+    <!-- Tailwind Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .dark .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .dark .loading {
+            background: #0f172a;
+        }
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3B82F6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .dark .loading-spinner {
+            border: 3px solid #1e293b;
+            border-top: 3px solid #3B82F6;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .model-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .dark .model-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900">
+    <!-- Loading Screen -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <span class="text-2xl font-bold text-primary dark:text-white">
+                            <i class="fas fa-robot mr-2"></i>Catalitium
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
+                    <a href="/about" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
+                    <a href="/services" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
+                    <a href="/contact" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
+                    <a href="/support" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Support</a>
+                    <a href="/terms-of-service" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Terms</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
+                <a href="/about" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
+                <a href="/services" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
+                <a href="/contact" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
+                <a href="/support" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Support</a>
+                <a href="/terms-of-service" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Terms</a>
+                <button id="mobileDarkModeToggle" class="w-full text-left px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
+                    <i class="fas fa-moon dark:hidden mr-2"></i>
+                    <i class="fas fa-sun hidden dark:block mr-2"></i>
+                    Toggle Dark Mode
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    AI Model Selection Guide 2024: Choose the Right Model for Your Needs
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-12">
+                    Expert comparison of GPT-4, Claude 3.7, Gemini 2.5, and more. Get detailed performance metrics, cost analysis, and use-case recommendations.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#model-comparison" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                        View Model Comparison
+                    </a>
+                    <a href="/contact.html" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-6 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200">
+                        Get Expert Advice
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <nav class="text-sm" aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white">Home</a>
+                    <svg class="fill-current w-3 h-3 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="/services" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white">Services</a>
+                    <svg class="fill-current w-3 h-3 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+                    </svg>
+                </li>
+                <li>
+                    <span class="text-gray-500 dark:text-gray-400">AI Model Guide</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Model Selection Guide -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">How to Choose the Right AI Model for Your Needs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- General Use Card -->
+                <article class="model-card bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl mr-2">🎯</span>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">General Use</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Chat, Research, Balanced Tasks</p>
+                    <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg">
+                        <p class="font-semibold text-blue-800 dark:text-blue-200">Recommended: GPT-4o or Claude 3.7 Sonnet</p>
+                        <p class="text-blue-600 dark:text-blue-300 mt-2">Best combination of reasoning, cost, and image support</p>
+                    </div>
+                </article>
+
+                <!-- Deep Reasoning Card -->
+                <article class="model-card bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl mr-2">🧠</span>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Deep Reasoning</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Longform, Chain-of-Thought</p>
+                    <div class="bg-purple-50 dark:bg-purple-900/30 p-4 rounded-lg">
+                        <p class="font-semibold text-purple-800 dark:text-purple-200">Recommended: Claude 3.7 Sonnet (Thinking), GPT-4.1</p>
+                        <p class="text-purple-600 dark:text-purple-300 mt-2">Higher coherence in complex logic</p>
+                    </div>
+                </article>
+
+                <!-- Coding Card -->
+                <article class="model-card bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl mr-2">💻</span>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Coding & Development</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">SWE Interviews, Debugging</p>
+                    <div class="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg">
+                        <p class="font-semibold text-green-800 dark:text-green-200">Recommended: SWE-1 or Claude 3.5/3.7 or GPT-4o</p>
+                        <p class="text-green-600 dark:text-green-300 mt-2">Best performance on HumanEval, SWE-1 excels at LEETCODE-style</p>
+                    </div>
+                </article>
+
+                <!-- Fast Tasks Card -->
+                <article class="model-card bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl mr-2">🏎️</span>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Fast & Efficient</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Summarization, Low-Cost Agents</p>
+                    <div class="bg-yellow-50 dark:bg-yellow-900/30 p-4 rounded-lg">
+                        <p class="font-semibold text-yellow-800 dark:text-yellow-200">Recommended: Gemini 2.5 Flash or o4-mini</p>
+                        <p class="text-yellow-600 dark:text-yellow-300 mt-2">Cheapest + fastest with decent output</p>
+                    </div>
+                </article>
+
+                <!-- Multi-modal Card -->
+                <article class="model-card bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl mr-2">📸</span>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Multi-modal Analysis</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Image Analysis, Vision Tasks</p>
+                    <div class="bg-red-50 dark:bg-red-900/30 p-4 rounded-lg">
+                        <p class="font-semibold text-red-800 dark:text-red-200">Recommended: GPT-4o, Gemini 2.5 Pro, Claude 3.7</p>
+                        <p class="text-red-600 dark:text-red-300 mt-2">They handle vision + text well</p>
+                    </div>
+                </article>
+
+                <!-- TL;DR Card -->
+                <article class="model-card bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl mr-2">✅</span>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Quick Decision Guide</h3>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                        <p class="text-gray-800 dark:text-gray-200 font-medium">
+                            "Use GPT-4o for balanced greatness. Use Claude 3.7 (Thinking) for deep thoughts. Use Gemini Flash or o4-mini for speed and scale."
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Comparison Table -->
+    <section id="model-comparison" class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">AI Model Comparison Cheat Sheet 2024</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg">
+                    <thead>
+                        <tr class="bg-gray-50 dark:bg-gray-800">
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Model Group</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Best For</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Reasoning/Code</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Speed</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Cost-Efficiency</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Image Support</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">GPT-4o</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">General top-tier use</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">🧠🧠🧠🧠</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">⚡⚡</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅✅ (1 credit)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅</td>
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">Balanced cost, great reasoning, fast. Use as default.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">GPT-4.1 / o4-mini</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">Quality + low cost</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">🧠🧠🧠</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">⚡⚡⚡</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅✅✅ (0.251 credit)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅</td>
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">Great for budget workloads.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">SWE-1 / SWE-1-lite</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">SWE-specific logic/code</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">🧠🧠🧠🧠</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">⚡</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅ (SWE-1 only)</td>
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">Ideal for SWE reasoning and interviews.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Claude 3.7 Sonnet</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">Deep reasoning/writing</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">🧠🧠🧠🧠🧠</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">⚡</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">❌🪙</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅</td>
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">Great creative, reflective tasks. Not as coding-focused.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Claude 3.7 (Thinking)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">Long tasks, deep chains</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">🧠🧠🧠🧠🧠🧠</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">🚀</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">❌🪙</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅</td>
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">Use for complex reasoning when accuracy > speed.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Gemini 2.5 Flash</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">Speed, cheap tasks</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">🧠🧠</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">⚡⚡⚡⚡</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅✅✅✅</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅</td>
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">Good for summarizing, basic lookup.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Gemini 2.5 Pro</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">Multi-modal + reasoning</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">🧠🧠🧠🧠</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">⚡⚡</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅ (0.751)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅</td>
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">Good for visual+text combos.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">xAI Grok-3</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">Code + logic (Twitter stack)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">🧠🧠🧠</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">⚡⚡</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">✅</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">❌</td>
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">Early but promising—great for Elon-stack apps.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Content -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Related Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="/services" class="block p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">AI Implementation Services</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Learn how we can help you implement the right AI solution for your business.</p>
+                </a>
+                <a href="/contact" class="block p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Get Expert Consultation</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Schedule a consultation with our AI experts to discuss your specific needs.</p>
+                </a>
+                <a href="/support" class="block p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Technical Support</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Get help with AI implementation and troubleshooting.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out'
+        });
+
+        // Dark mode functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+        const html = document.documentElement;
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark'));
+        }
+
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMobileMenuOpen = false;
+
+        mobileMenuButton.addEventListener('click', () => {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.innerHTML = isMobileMenuOpen ? 
+                '<i class="fas fa-times text-gray-600 dark:text-gray-300"></i>' : 
+                '<i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>';
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loading');
+            loader.classList.add('hidden');
+        });
+    </script>
+</body>
+</html> 
