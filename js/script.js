@@ -5,17 +5,6 @@ let currentPage = 1;
 const jobsPerPage = 10;
 let searchStartTime = null;
 
-// Cache DOM elements
-const elements = {
-    countrySelect: document.getElementById('countrySelect'),
-    jobTitleInput: document.getElementById('jobTitleInput'),
-    salaryInfo: document.getElementById('salaryInfo'),
-    jobListings: document.getElementById('jobListings'),
-    loading: document.getElementById('loading'),
-    errorContainer: document.getElementById('errorContainer'),
-    mainContent: document.getElementById('mainContent')
-};
-
 // Performance monitoring
 const performanceMetrics = {
     dataLoadTime: 0,
@@ -26,20 +15,64 @@ const performanceMetrics = {
 // Add this at the top of the file, after the global variables
 const LOAD_TIMEOUT = 10000; // 10 seconds timeout
 
+// Get DOM elements when needed
+function getElements() {
+    return {
+        countrySelect: document.getElementById('countrySelect'),
+        jobTitleInput: document.getElementById('jobTitleInput'),
+        salaryInfo: document.getElementById('salaryInfo'),
+        jobListings: document.getElementById('jobListings'),
+        loading: document.getElementById('loading'),
+        errorContainer: document.getElementById('errorContainer'),
+        mainContent: document.getElementById('mainContent')
+    };
+}
+
+// Initialize UI
+function initializeUI() {
+    const elements = getElements();
+    
+    // Add event listeners for search controls
+    if (elements.countrySelect) {
+        elements.countrySelect.addEventListener('change', function() {
+            const country = this.value;
+            if (country && typeof trackCountrySearchPopularity === 'function') {
+                trackCountrySearchPopularity(country);
+            }
+            updateUI();
+        });
+    }
+    
+    if (elements.jobTitleInput) {
+        let searchTimeout;
+        elements.jobTitleInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const jobTitle = this.value.trim();
+                if (jobTitle && typeof trackSearchTermPopularity === 'function') {
+                    trackSearchTermPopularity(jobTitle);
+                }
+                updateUI();
+            }, 500); // Debounce search to avoid too many analytics calls
+        });
+    }
+}
+
 // Load data from CSV files
 async function loadData() {
     try {
         console.log('Starting data load...');
         
         // Show loading spinner
+        const elements = getElements();
         if (elements.loading) {
-            elements.loading.classList.remove('hidden');
+            elements.loading.style.display = 'flex';
         }
         if (elements.mainContent) {
-            elements.mainContent.classList.add('hidden');
+            elements.mainContent.style.display = 'none';
         }
         if (elements.errorContainer) {
-            elements.errorContainer.classList.add('hidden');
+            elements.errorContainer.style.display = 'none';
         }
 
         // Load both files in parallel
@@ -69,14 +102,15 @@ async function loadData() {
 
         // Initialize UI
         populateCountryOptions();
+        initializeUI();
         updateUI();
 
         // Hide loading spinner and show content
         if (elements.loading) {
-            elements.loading.classList.add('hidden');
+            elements.loading.style.display = 'none';
         }
         if (elements.mainContent) {
-            elements.mainContent.classList.remove('hidden');
+            elements.mainContent.style.display = 'block';
         }
 
     } catch (error) {
@@ -93,25 +127,60 @@ function parseCSV(text) {
             throw new Error('CSV file is empty or has no data');
         }
 
-        const headers = lines[0].split('\t').map(header => header.trim());
-        console.log('CSV Headers:', headers);
+        let headers = lines[0].split('\t').map(header => header.trim());
+        console.log('Initial CSV Headers:', headers);
         
-        const data = lines.slice(1)
-            .filter(line => line.trim()) // Remove empty lines
-            .map((line, index) => {
-                const values = line.split('\t').map(value => value.trim());
-                if (values.length !== headers.length) {
-                    console.warn(`Line ${index + 2} has incorrect number of columns:`, line);
-                    return null;
+        const data = [];
+        let currentHeaders = headers;
+        let usaCount = 0;
+        
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line) continue; // Skip empty lines
+            
+            const values = line.split('\t').map(value => value.trim());
+            
+            // Check if this line is a new header (starts with "JobID")
+            if (values[0] === 'JobID') {
+                currentHeaders = values;
+                console.log('New header detected at line', i + 1, ':', currentHeaders);
+                continue;
+            }
+            
+            // Handle rows with different column counts
+            if (values.length !== currentHeaders.length) {
+                console.warn(`Line ${i + 1} has ${values.length} columns but header has ${currentHeaders.length}:`, line);
+                
+                // If we have more values than headers, truncate
+                if (values.length > currentHeaders.length) {
+                    values.splice(currentHeaders.length);
                 }
-                return headers.reduce((obj, header, i) => {
-                    obj[header] = values[i];
-                    return obj;
-                }, {});
-            })
-            .filter(obj => obj !== null); // Remove any null entries
+                // If we have fewer values than headers, pad with empty strings
+                else if (values.length < currentHeaders.length) {
+                    while (values.length < currentHeaders.length) {
+                        values.push('');
+                    }
+                }
+            }
+            
+            const obj = currentHeaders.reduce((obj, header, j) => {
+                obj[header] = values[j] || '';
+                return obj;
+            }, {});
+            
+            // Count USA entries for debugging
+            if (obj.Country === 'USA') {
+                usaCount++;
+                if (usaCount <= 3) {
+                    console.log(`USA entry ${usaCount} at line ${i + 1}:`, obj);
+                }
+            }
+            
+            data.push(obj);
+        }
 
         console.log(`Parsed ${data.length} rows successfully`);
+        console.log(`Total USA entries found: ${usaCount}`);
         return data;
     } catch (error) {
         console.error('Error parsing CSV:', error);
@@ -121,21 +190,67 @@ function parseCSV(text) {
 
 // Populate country options
 function populateCountryOptions() {
+    const elements = getElements();
     if (!elements.countrySelect) return;
     
-    const countries = [...new Set(salaryData.map(item => item.Country))].sort();
+    // Get unique countries from both salary data and job data
+    const salaryCountries = [...new Set(salaryData.map(item => item.Country))];
+    const jobCountries = [...new Set(jobData.map(job => job.Country))];
+    const allCountries = [...new Set([...salaryCountries, ...jobCountries])];
+    
+    console.log('Salary countries:', salaryCountries);
+    console.log('Job countries:', jobCountries);
+    console.log('All unique countries:', allCountries);
+    console.log('Total job data entries:', jobData.length);
+    console.log('Total salary data entries:', salaryData.length);
+    
+    // Check specifically for USA entries
+    const usaJobs = jobData.filter(job => job.Country === 'USA');
+    console.log('USA jobs found:', usaJobs.length);
+    if (usaJobs.length > 0) {
+        console.log('Sample USA job:', usaJobs[0]);
+    }
+    
+    // Sort countries: USA first, Spain second, then alphabetically
+    const sortedCountries = allCountries.sort((a, b) => {
+        if (a === 'USA') return -1;
+        if (b === 'USA') return 1;
+        if (a === 'Spain') return -1;
+        if (b === 'Spain') return 1;
+        return a.localeCompare(b);
+    });
+    
     elements.countrySelect.innerHTML = `
         <option value="" data-en="All Countries" data-es="Todos los Países">All Countries</option>
-        ${countries.map(country => `
+        ${sortedCountries.map(country => `
             <option value="${country}">${country}</option>
         `).join('')}
     `;
+    
+    console.log('Country dropdown populated with', sortedCountries.length, 'countries');
+    console.log('Sorted countries:', sortedCountries);
 }
 
 // Update UI based on user input
 function updateUI() {
+    const elements = getElements();
     const country = elements.countrySelect?.value || '';
     const jobTitle = elements.jobTitleInput?.value || '';
+    
+    // Track search with Google Analytics
+    if (typeof trackJobSearch === 'function') {
+        trackJobSearch(jobTitle, country);
+    }
+    
+    // Track country selection
+    if (country && typeof trackCountrySearchPopularity === 'function') {
+        trackCountrySearchPopularity(country);
+    }
+    
+    // Track search term popularity
+    if (jobTitle && typeof trackSearchTermPopularity === 'function') {
+        trackSearchTermPopularity(jobTitle);
+    }
     
     // Track search performance
     searchStartTime = performance.now();
@@ -150,6 +265,7 @@ function updateUI() {
 
 // Update salary information
 function updateSalaryInfo(country, jobTitle) {
+    const elements = getElements();
     if (!elements.salaryInfo) return;
 
     let filteredData = salaryData;
@@ -168,7 +284,7 @@ function updateSalaryInfo(country, jobTitle) {
         );
     }
 
-    if (filteredData.length === 0) {
+    if (filteredData.length === 0 && filteredJobs.length === 0) {
         elements.salaryInfo.innerHTML = `
             <div class="text-center text-gray-600 dark:text-gray-300">
                 <p data-en="No salary data available for the selected criteria" data-es="No hay datos salariales disponibles para los criterios seleccionados">
@@ -183,13 +299,39 @@ function updateSalaryInfo(country, jobTitle) {
     console.log('Filtered salary data:', filteredData);
     console.log('Total filtered jobs:', filteredJobs.length);
 
-    const avgSalary = calculateAverageSalary(filteredData);
-    const maxSalary = Math.max(...filteredData.map(item => {
-        const salary = parseFloat(item.MedianSalary);
-        return isNaN(salary) ? 0 : salary;
-    }));
-    const jobCount = filteredJobs.length;
-    const currency = filteredData[0]?.CurrencyTicker || 'USD';
+    let avgSalary = 0;
+    let maxSalary = 0;
+    let currency = 'USD';
+    let jobCount = filteredJobs.length;
+
+    // If we have salary data from the salary.csv file, use it
+    if (filteredData.length > 0) {
+        avgSalary = calculateAverageSalary(filteredData);
+        maxSalary = Math.max(...filteredData.map(item => {
+            const salary = parseFloat(item.MedianSalary);
+            return isNaN(salary) ? 0 : salary;
+        }));
+        currency = filteredData[0]?.CurrencyTicker || 'USD';
+    } else if (filteredJobs.length > 0) {
+        // If no salary.csv data, try to extract from job salary column
+        const validSalaries = filteredJobs
+            .map(job => {
+                if (job.Salary) {
+                    // Extract numeric value from salary string like "$50,000 - $70,000" or "$40"
+                    const salaryMatch = job.Salary.match(/\$?([\d,]+)/);
+                    if (salaryMatch) {
+                        return parseFloat(salaryMatch[1].replace(/,/g, ''));
+                    }
+                }
+                return null;
+            })
+            .filter(salary => salary !== null && salary > 0);
+
+        if (validSalaries.length > 0) {
+            avgSalary = Math.round(validSalaries.reduce((a, b) => a + b, 0) / validSalaries.length);
+            maxSalary = Math.max(...validSalaries);
+        }
+    }
 
     // Debug log to check calculations
     console.log('Salary calculations:', {
@@ -197,8 +339,13 @@ function updateSalaryInfo(country, jobTitle) {
         maxSalary,
         jobCount,
         currency,
-        sampleSalaries: filteredData.slice(0, 3).map(item => item.MedianSalary)
+        sampleSalaries: filteredJobs.slice(0, 3).map(job => job.Salary)
     });
+
+    // Track salary insight view
+    if (typeof trackSalaryInsight === 'function') {
+        trackSalaryInsight(jobTitle || 'All Jobs', country || 'All Countries');
+    }
 
     elements.salaryInfo.innerHTML = `
         <div class="salary-stats">
@@ -208,7 +355,7 @@ function updateSalaryInfo(country, jobTitle) {
                     <div class="metric">
                         <span class="label">Average Salary</span>
                         <span class="value">${formatSalary(avgSalary, currency)}</span>
-                        <div class="mt-2 text-sm text-gray-500">Based on ${filteredData.length} salary reports</div>
+                        <div class="mt-2 text-sm text-gray-500">Based on ${filteredJobs.length} job listings</div>
                     </div>
                     <div class="metric">
                         <span class="label">Maximum Salary</span>
@@ -228,6 +375,7 @@ function updateSalaryInfo(country, jobTitle) {
 
 // Update job listings
 function updateJobListings(country, jobTitle) {
+    const elements = getElements();
     if (!elements.jobListings) return;
 
     let filteredJobs = jobData;
@@ -244,23 +392,10 @@ function updateJobListings(country, jobTitle) {
     // Sort jobs by title for better search results
     filteredJobs.sort((a, b) => a.JobTitle.localeCompare(b.JobTitle));
 
-    // Track search metrics
-    if (jobTitle) {
-        trackSearchTermPopularity(jobTitle);
-    }
-    if (country) {
-        trackCountrySearchPopularity(country);
-    }
-    trackJobSearch(jobTitle, country);
-
-    const startIndex = (currentPage - 1) * jobsPerPage;
-    const endIndex = startIndex + jobsPerPage;
-    const paginatedJobs = filteredJobs.slice(startIndex, endIndex);
-
     if (filteredJobs.length === 0) {
         elements.jobListings.innerHTML = `
-            <div class="text-center text-gray-600 dark:text-gray-300 p-8">
-                <p data-en="No jobs found matching your criteria" data-es="No se encontraron trabajos que coincidan con tus criterios">
+            <div class="no-results">
+                <p data-en="No jobs found matching your criteria" data-es="No se encontraron trabajos que coincidan con sus criterios">
                     No jobs found matching your criteria
                 </p>
             </div>
@@ -268,181 +403,68 @@ function updateJobListings(country, jobTitle) {
         return;
     }
 
-    elements.jobListings.innerHTML = paginatedJobs.map(job => createJobCard(job)).join('');
-    addPagination(filteredJobs.length);
-}
-
-// Create job card HTML
-function createJobCard(job) {
-    const isRemote = job.JobTitle.toLowerCase().includes('remote') || 
-                    job.Location.toLowerCase().includes('remote');
-    const salary = parseFloat(job.MedianSalary);
-    const currency = job.CurrencyTicker || 'USD';
-    const formattedSalary = formatSalary(salary, currency);
-    const jobUrl = job.JobURL || job.Link || '#'; // Use JobURL or Link, fallback to #
-    
-    return `
-        <div class="job-card bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 sm:p-6 hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700">
-            <div class="job-header flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
-                <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white hover:text-primary transition-colors">
-                    <a href="${jobUrl}" target="_blank" class="hover:underline">${job.JobTitle}</a>
-                </h3>
-                <div class="badge-container flex flex-wrap gap-2">
-                    ${isRemote ? `
-                        <span class="remote-badge bg-green-50 text-green-700 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-green-900/30 dark:text-green-300">
-                            <i class="fas fa-globe mr-1"></i>Remote
-                        </span>
-                    ` : ''}
-                    <span class="job-type-badge bg-blue-50 text-blue-700 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-blue-900/30 dark:text-blue-300">
-                        <i class="fas fa-briefcase mr-1"></i>${job.JobType || 'Full-time'}
-                    </span>
-                </div>
-            </div>
-            
-            <div class="company mb-4">
-                <strong class="text-base sm:text-lg text-gray-800 dark:text-gray-200">${job.CompanyName}</strong>
-                <p class="location text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-1">
-                    <i class="fas fa-map-marker-alt mr-1.5"></i>${job.Location}
-                </p>
-            </div>
-            
-            <div class="job-details grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                <div class="detail-item">
-                    <span class="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Experience</span>
-                    <p class="text-sm sm:text-base text-gray-800 dark:text-gray-200">${job.Experience || 'Not specified'}</p>
-                </div>
-                <div class="detail-item">
-                    <span class="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Salary</span>
-                    <p class="text-sm sm:text-base text-gray-800 dark:text-gray-200 font-semibold">${formattedSalary}</p>
-                </div>
-            </div>
-            
-            <div class="job-actions mt-4">
-                <a href="${jobUrl}" target="_blank" 
-                   class="view-job-btn inline-flex items-center justify-center w-full bg-primary hover:bg-blue-600 text-white text-sm sm:text-base font-semibold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5">
-                    <span data-en="Apply Now" data-es="Aplicar Ahora">Apply Now</span>
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    `;
-}
-
-// Add pagination controls
-function addPagination(totalJobs) {
-    const totalPages = Math.ceil(totalJobs / jobsPerPage);
-    const paginationContainer = document.createElement('div');
-    paginationContainer.className = 'pagination-container flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 mb-4 px-4';
-    
-    // Page info
-    const pageInfo = document.createElement('div');
-    pageInfo.className = 'text-sm text-gray-600 dark:text-gray-400';
-    pageInfo.innerHTML = `Showing ${Math.min((currentPage - 1) * jobsPerPage + 1, totalJobs)}-${Math.min(currentPage * jobsPerPage, totalJobs)} of ${totalJobs}`;
-    
-    // Navigation buttons container
-    const navContainer = document.createElement('div');
-    navContainer.className = 'flex items-center gap-2';
-    
-    // Previous button
-    const prevButton = document.createElement('button');
-    prevButton.className = `flex items-center px-3 py-2 rounded-lg transition-all duration-300 text-sm ${
-        currentPage === 1 
-        ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
-        : 'bg-white text-primary hover:bg-gray-50 border border-gray-200'
-    }`;
-    prevButton.disabled = currentPage === 1;
-    prevButton.innerHTML = `
-        <i class="fas fa-chevron-left mr-1"></i>
-        <span class="hidden sm:inline" data-en="Previous" data-es="Anterior">Previous</span>
-    `;
-    prevButton.onclick = () => {
-        if (currentPage > 1) {
-            currentPage--;
-            updateUI();
-        }
-    };
-    
-    // Page numbers
-    const pageNumbers = document.createElement('div');
-    pageNumbers.className = 'flex items-center gap-1';
-    
-    // Show first page, current page, and last page
-    const pagesToShow = [];
-    
-    // Always show first page
-    pagesToShow.push(1);
-    
-    // Show ellipsis if needed before current page
-    if (currentPage > 3) {
-        pagesToShow.push('...');
-    }
-    
-    // Show pages around current page
-    for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
-        if (i > 1 && i < totalPages) {
-            pagesToShow.push(i);
-        }
-    }
-    
-    // Show ellipsis if needed after current page
-    if (currentPage < totalPages - 2) {
-        pagesToShow.push('...');
-    }
-    
-    // Always show last page if there is more than one page
-    if (totalPages > 1) {
-        pagesToShow.push(totalPages);
-    }
-    
-    pagesToShow.forEach(page => {
-        if (page === '...') {
-            const ellipsis = document.createElement('span');
-            ellipsis.className = 'px-2 text-gray-500';
-            ellipsis.textContent = '...';
-            pageNumbers.appendChild(ellipsis);
+    // Use the createJobCard function from jobs.js if available, otherwise fallback
+    const jobCardsHTML = filteredJobs.map(job => {
+        if (typeof window.createJobCard === 'function') {
+            return window.createJobCard(job);
         } else {
-            const pageButton = document.createElement('button');
-            pageButton.className = `w-8 h-8 flex items-center justify-center rounded-lg transition-all duration-300 text-sm ${
-                currentPage === page 
-                ? 'bg-primary text-white shadow-sm' 
-                : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-            }`;
-            pageButton.textContent = page;
-            pageButton.onclick = () => {
-                currentPage = page;
-                updateUI();
-            };
-            pageNumbers.appendChild(pageButton);
+            // Fallback to basic card if createJobCard is not available
+            const anonymizedCompany = anonymizeCompanyName(job.CompanyName);
+            
+            // Handle salary formatting
+            let formattedSalary = 'N/A';
+            if (job.Salary) {
+                formattedSalary = job.Salary; // Use the new salary column directly
+            } else if (job.MedianSalary) {
+                formattedSalary = formatSalary(parseFloat(job.MedianSalary), job.CurrencyTicker || 'USD');
+            }
+            
+            // Create simplified URL parameters
+            const jobUrl = `job-apply.html?title=${encodeURIComponent(job.JobTitle)}&company=${encodeURIComponent(job.CompanyName)}&location=${encodeURIComponent(job.Location)}&salary=${encodeURIComponent(formattedSalary)}`;
+            
+            return `
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3>
+                            <a href="${jobUrl}">${job.JobTitle}</a>
+                        </h3>
+                        <div class="badge-container">
+                            <span class="job-type-badge">
+                                <i class="fas fa-briefcase"></i>${job.JobType || 'Full-time'}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="company">
+                        <strong>${anonymizedCompany}</strong>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>${job.Location}
+                        </p>
+                    </div>
+                    
+                    <div class="job-details">
+                        <div class="detail-item">
+                            <span>Experience</span>
+                            <p>${job.Experience || 'Not specified'}</p>
+                        </div>
+                        <div class="detail-item">
+                            <span>Salary</span>
+                            <p>${formattedSalary}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="job-actions">
+                        <a href="${jobUrl}" class="view-job-btn">
+                            <span data-en="Apply Now" data-es="Aplicar Ahora">Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
         }
-    });
-    
-    // Next button
-    const nextButton = document.createElement('button');
-    nextButton.className = `flex items-center px-3 py-2 rounded-lg transition-all duration-300 text-sm ${
-        currentPage === totalPages 
-        ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
-        : 'bg-white text-primary hover:bg-gray-50 border border-gray-200'
-    }`;
-    nextButton.disabled = currentPage === totalPages;
-    nextButton.innerHTML = `
-        <span class="hidden sm:inline" data-en="Next" data-es="Siguiente">Next</span>
-        <i class="fas fa-chevron-right ml-1"></i>
-    `;
-    nextButton.onclick = () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            updateUI();
-        }
-    };
-    
-    navContainer.appendChild(prevButton);
-    navContainer.appendChild(pageNumbers);
-    navContainer.appendChild(nextButton);
-    
-    paginationContainer.appendChild(pageInfo);
-    paginationContainer.appendChild(navContainer);
-    
-    elements.jobListings.appendChild(paginationContainer);
+    }).join('');
+
+    elements.jobListings.innerHTML = jobCardsHTML;
 }
 
 // Helper function to calculate average salary
@@ -481,37 +503,84 @@ function formatSalary(salary, currency = 'USD') {
     }).format(salary);
 }
 
+// Make formatSalary globally available
+window.formatSalary = formatSalary;
+
 // Show error container
 function showErrorContainer() {
+    const elements = getElements();
     if (elements.loading) {
-        elements.loading.classList.add('hidden');
+        elements.loading.style.display = 'none';
     }
     if (elements.mainContent) {
-        elements.mainContent.classList.add('hidden');
+        elements.mainContent.style.display = 'none';
     }
     if (elements.errorContainer) {
-        elements.errorContainer.classList.remove('hidden');
+        elements.errorContainer.style.display = 'block';
     }
+}
+
+// Function to anonymize company names
+function anonymizeCompanyName(companyName) {
+    if (!companyName || companyName.trim() === '') {
+        return 'Company***';
+    }
+    
+    // Handle different company name formats
+    const name = companyName.trim();
+    
+    // If it's already anonymized, return as is
+    if (name.includes('*')) {
+        return name;
+    }
+    
+    // Calculate how many characters to replace (40% of the name length)
+    const totalLength = name.length;
+    const charsToReplace = Math.ceil(totalLength * 0.4);
+    
+    // If the name is too short, just add *** at the end
+    if (totalLength <= 3) {
+        return `${name}***`;
+    }
+    
+    // Create an array of character positions to replace
+    const positionsToReplace = [];
+    const step = Math.floor(totalLength / charsToReplace);
+    
+    for (let i = 0; i < charsToReplace; i++) {
+        const pos = Math.floor(i * step) + Math.floor(step / 2);
+        if (pos < totalLength && !positionsToReplace.includes(pos)) {
+            positionsToReplace.push(pos);
+        }
+    }
+    
+    // Fill remaining positions if needed
+    while (positionsToReplace.length < charsToReplace) {
+        const randomPos = Math.floor(Math.random() * totalLength);
+        if (!positionsToReplace.includes(randomPos)) {
+            positionsToReplace.push(randomPos);
+        }
+    }
+    
+    // Sort positions to maintain order
+    positionsToReplace.sort((a, b) => a - b);
+    
+    // Replace characters with asterisks
+    let anonymizedName = '';
+    for (let i = 0; i < totalLength; i++) {
+        if (positionsToReplace.includes(i)) {
+            anonymizedName += '*';
+        } else {
+            anonymizedName += name[i];
+        }
+    }
+    
+    return anonymizedName;
 }
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
-    
-    // Add event listeners for search
-    if (elements.countrySelect) {
-        elements.countrySelect.addEventListener('change', () => {
-            currentPage = 1; // Reset to first page on filter change
-            updateUI();
-        });
-    }
-    
-    if (elements.jobTitleInput) {
-        elements.jobTitleInput.addEventListener('input', () => {
-            currentPage = 1; // Reset to first page on search
-            updateUI();
-        });
-    }
 });
 
 gtag('event', 'job_search', {

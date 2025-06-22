@@ -32,3 +32,10 @@ GeoSalaryId	Location	MedianSalary	MinSalary	CurrencyTicker	City	Country	Region	R
 38	Rome Latium Italy (on-site)	35000	30000	EUR	Rome	Italy	Europe	Onsite
 39	France (Remote)	45000	35000	EUR	NULL	France	Europe	Remote
 40	London England United Kingdom (on-site)	70000	50000	GBP	London	United Kingdom	Europe	Onsite
+41	Austria (Remote)	65000	50000	EUR	NULL	Austria	Europe	Remote
+42	Belgium (Remote)	62000	48000	EUR	NULL	Belgium	Europe	Remote
+43	Finland (Remote)	60000	45000	EUR	NULL	Finland	Europe	Remote
+44	Czech Republic (Remote)	1100000	800000	CZK	NULL	Czech Republic	Europe	Remote
+49	Netherlands (Remote)	67000	52000	EUR	NULL	Netherlands	Europe	Remote
+50	Greece (Remote)	32000	24000	EUR	NULL	Greece	Europe	Remote
+51	Luxembourg (Remote)	78000	60000	EUR	NULL	Luxembourg	Europe	Remote

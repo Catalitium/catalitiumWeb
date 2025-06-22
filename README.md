@@ -14,6 +14,7 @@ A modern job search platform with real-time salary insights and global job oppor
 - Advanced search and filtering
 - Salary range visualization
 - Company insights
+- **Job Application Form** with file upload and validation
 
 ## Tech Stack
 
@@ -23,6 +24,7 @@ A modern job search platform with real-time salary insights and global job oppor
 - Google Analytics
 - Google Tag Manager
 - CSV Data Integration
+- Netlify Forms Integration
 
 ## Getting Started
 
@@ -52,18 +54,50 @@ npx serve
 ```
 catalitium/
 ├── css/
-│   └── style.css
+│   ├── style.css          # Base styles
+│   └── job-apply.css      # Job application form styles
 ├── js/
-│   └── script.js
+│   ├── script.js          # Main application logic
+│   ├── main.js            # Additional utilities
+│   └── job-apply.js       # Job application form logic
 ├── data/
-│   ├── jobs.csv
-│   └── salary.csv
+│   ├── jobs.csv           # Job listings data
+│   └── salary.csv         # Salary information data
 ├── images/
 ├── assets/
-├── index.html
-├── jobs.html
+├── index.html             # Homepage
+├── jobs.html              # Job search page
+├── job-apply.html         # Job application form
+├── about.html
+├── contact.html
+├── services.html
+├── support.html
+├── privacy-policy.html
+├── terms-of-service.html
+├── 404.html
+├── GenAiModels.html
 └── README.md
 ```
+
+## Key Pages
+
+- **Homepage** (`index.html`): Main landing page with company overview
+- **Job Search** (`jobs.html`): Interactive job search with filtering and salary insights
+- **Job Application** (`job-apply.html`): Clean, accessible application form with file upload
+- **About** (`about.html`): Company information and team details
+- **Contact** (`contact.html`): Contact information and form
+
+## Job Application Form
+
+The job application form (`job-apply.html`) features:
+- **Clean, accessible design** with modern UI/UX
+- **File upload validation** (PDF, DOC, DOCX, max 5MB)
+- **Email validation** with real-time feedback
+- **Work permit toggle** for international applications
+- **Netlify integration** for form handling
+- **Google Analytics tracking** for form interactions
+- **Mobile-responsive** design
+- **Keyboard accessibility** support
 
 ## Data Sources
 
@@ -79,6 +113,16 @@ The platform uses Google Analytics and Google Tag Manager to track:
 - User interactions
 - Search patterns
 - Country-specific analytics
+- Form submissions
+- File uploads
+
+## Deployment
+
+The project is optimized for deployment on:
+- **Netlify** (recommended for form handling)
+- **GitHub Pages**
+- **Vercel**
+- Any static hosting service
 
 ## Contributing
 

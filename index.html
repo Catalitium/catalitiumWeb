@@ -9,15 +9,14 @@
     })(window,document,'script','dataLayer','GTM-MNJ9SSL9');</script>
     <!-- End Google Tag Manager -->
     
-    <!-- Meta Tags -->
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Catalitium - Leading provider of RPA solutions, Python automation, cloud computing, and digital transformation services in Spain. Expert in business process automation, AI integration, and web development.">
     <meta name="keywords" content="RPA solutions, Python automation, cloud computing, digital transformation, business automation, process automation, AI integration, web development, database management, cloud architecture, business process optimization, workflow automation, digital solutions, IT consulting, technology solutions, business efficiency, automation tools, cloud services, digital services, Catalitium, Spain automation, European automation solutions">
     
     <!-- Primary Meta Tags -->
-    <title>Catalitium | Leading RPA & Automation Solutions in Spain | Transform Your Business</title>
-    <meta name="title" content="Catalitium | Leading RPA & Automation Solutions in Spain | Transform Your Business">
+    <title>Catalitium | Solutions | Transform Your Business</title>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -35,26 +34,15 @@
     <meta property="twitter:description" content="Transform your business with Catalitium's expert RPA solutions, Python automation, and cloud computing services. Leading provider of digital transformation in Spain and Europe.">
     <meta property="twitter:image" content="https://www.catalitium.com/images/twitter-card.jpg">
     
-    <!-- Additional SEO Meta Tags -->
+    <!-- Essential SEO Meta Tags -->
     <meta name="author" content="Catalitium">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    <meta name="generator" content="Catalitium">
     <meta name="theme-color" content="#3B82F6">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
     <meta name="geo.region" content="ES">
     <meta name="geo.position" content="40.4168;-3.7038">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.catalitium.com/">
-    
-    <!-- Alternate Language Versions -->
-    <link rel="alternate" hreflang="en" href="https://www.catalitium.com/">
-    <link rel="alternate" hreflang="es" href="https://www.catalitium.com/es/">
-    <link rel="alternate" hreflang="x-default" href="https://www.catalitium.com/">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://www.catalitium.com/favicon.png">
@@ -66,7 +54,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
     
     <!-- Schema.org markup for Google -->
     <script type="application/ld+json">
@@ -82,51 +69,18 @@
             "addressCountry": "ES",
             "addressLocality": "Madrid"
         },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "catalitium@outlook.com",
+            "availableLanguage": ["English", "Spanish"]
+        },
         "sameAs": [
-            "https://www.linkedin.com/company/catalitium",
-            "https://twitter.com/catalitium"
+            "https://www.linkedin.com/in/catalitiumes/",
+            "https://twitter.com/catalitium",
+            "https://github.com/Catalitium"
         ]
     }
-    </script>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-N8G6ZYS32D', {
-            'page_title': 'Home',
-            'page_location': window.location.href,
-            'page_path': window.location.pathname,
-            'send_page_view': true,
-            'custom_map': {
-                'dimension1': 'user_type',
-                'dimension2': 'service_category',
-                'dimension3': 'interaction_type',
-                'metric1': 'time_on_site',
-                'metric2': 'scroll_depth'
-            }
-        });
-
-        // Track page view
-        gtag('event', 'page_view', {
-            page_title: 'Home',
-            page_location: window.location.href,
-            page_path: window.location.pathname
-        });
-
-        // Track scroll depth
-        let maxScroll = 0;
-        window.addEventListener('scroll', function() {
-            const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
-            if (scrollPercent > maxScroll) {
-                maxScroll = scrollPercent;
-                gtag('event', 'scroll_depth', {
-                    depth: Math.round(maxScroll)
-                });
-            }
-        });
     </script>
 
     <!-- Tailwind Configuration -->
@@ -145,7 +99,7 @@
         }
     </script>
 
-    <!-- Custom Styles -->
+    <!-- Optimized Custom Styles -->
     <style>
         .gradient-bg {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -153,56 +107,15 @@
         .dark .gradient-bg {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out;
-        }
-        .dark .loading {
-            background: #0f172a;
-        }
-        .loading.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #3B82F6;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        .dark .loading-spinner {
-            border: 3px solid #1e293b;
-            border-top: 3px solid #3B82F6;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .bg-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.1) 1px, transparent 0);
+            background-size: 20px 20px;
         }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 transition-colors duration-300">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNJ9SSL9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <!-- Loading Animation -->
-    <div class="loading">
-        <div class="loading-spinner"></div>
-    </div>
-
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBJC78F"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNJ9SSL9"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
@@ -211,7 +124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+                    <a href="/" class="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
                         <i class="fas fa-robot text-primary mr-2"></i>
                         Catalitium
                     </a>
@@ -224,19 +137,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <!-- Desktop menu -->
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" data-en="About" data-es="Acerca de">About</a>
-                    <a href="/jobs.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" data-en="Jobs" data-es="Trabajos">Jobs</a>
-                    <a href="#pdf" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" data-en="Resources" data-es="Recursos">Resources</a>
-                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" data-en="Contact" data-es="Contacto">Contact</a>
+                    <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
+                    <a href="/jobs.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Jobs</a>
+                    <a href="/services.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Services</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
                     <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
                         <i class="fas fa-moon dark:hidden text-gray-600"></i>
                         <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
                     </button>
-                    <button id="languageToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center">
-                        <img src="https://flagcdn.com/24x18/es.png" alt="Spanish" class="w-6 h-4" data-lang="es">
-                        <img src="https://flagcdn.com/24x18/gb.png" alt="English" class="w-6 h-4 hidden" data-lang="en">
-                    </button>
-                    <a href="/jobs.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105" data-en="See Jobs" data-es="Ver Trabajos">
+                    <a href="/jobs.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
                         <i class="fas fa-briefcase mr-2"></i>
                         See Jobs
                     </a>
@@ -246,142 +155,104 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Mobile menu -->
         <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
             <div class="px-4 py-3 space-y-3">
-                <a href="about.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" data-en="About" data-es="Acerca de">About</a>
-                <a href="/jobs.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" data-en="Jobs" data-es="Trabajos">Jobs</a>
-                <a href="#pdf" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" data-en="Resources" data-es="Recursos">Resources</a>
-                <a href="#contact" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" data-en="Contact" data-es="Contacto">Contact</a>
+                <a href="/about.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
+                <a href="/jobs.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Jobs</a>
+                <a href="/services.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Services</a>
+                <a href="#contact" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
                 <button id="mobileDarkModeToggle" class="w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
                     <i class="fas fa-moon dark:hidden text-gray-600"></i>
                     <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
-                    <span class="ml-2" data-en="Toggle Dark Mode" data-es="Cambiar Modo Oscuro">Toggle Dark Mode</span>
-                </button>
-                <button id="mobileLanguageToggle" class="w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center">
-                    <img src="https://flagcdn.com/24x18/es.png" alt="Spanish" class="w-6 h-4 inline-block mr-2" data-lang="es">
-                    <img src="https://flagcdn.com/24x18/gb.png" alt="English" class="w-6 h-4 inline-block mr-2 hidden" data-lang="en">
-                    <span class="ml-2" data-en="Change Language" data-es="Cambiar Idioma">Change Language</span>
+                    <span class="ml-2">Toggle Dark Mode</span>
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 gradient-bg relative overflow-hidden">
-        <!-- Background pattern -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%233B82F6\' fill-opacity=\'0.1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-        </div>
-
+    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 gradient-bg bg-pattern relative overflow-hidden">
         <div class="max-w-7xl mx-auto text-center relative">
-            <div class="animate-fade-in">
-                <!-- Main Hero Content -->
-                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6"
-                    data-en="Transform Your Business with AI-Powered Automation"
-                    data-es="Transforma tu negocio con automatización impulsada por IA">
-                    Transform Your Business with AI-Powered Automation
-                </h1>
-                <p class="text-xl text-gray-600 dark:text-gray-300 mb-12"
-                   data-en="Expert RPA solutions and digital transformation services to streamline your operations and boost productivity"
-                   data-es="Soluciones RPA expertas y servicios de transformación digital para optimizar tus operaciones y aumentar la productividad">
-                   Expert RPA solutions and digital transformation services to streamline your operations and boost productivity
-                </p>
+            <!-- Main Hero Content -->
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                Ai-Based-Consulting & Staff
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-12">
+                Expert solutions to streamline your operations
+            </p>
 
-                <!-- AI Model Quick Guide -->
-                <div class="max-w-4xl mx-auto mb-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-6">
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4"
-                        data-en="Quick AI Model Guide"
-                        data-es="Guía Rápida de Modelos de IA">
-                        🚀 Quick AI Model Guide
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <!-- GPT-4o Card -->
-                        <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg">
-                            <h4 class="font-semibold text-blue-800 dark:text-blue-200"
-                                data-en="GPT-4o"
-                                data-es="GPT-4o">GPT-4o</h4>
-                            <p class="text-sm text-blue-600 dark:text-blue-300"
-                               data-en="Smart, fast, handles images well"
-                               data-es="Inteligente, rápido, maneja bien imágenes">Smart, fast, handles images well</p>
-                        </div>
-                        <!-- Claude 3.7 Card -->
-                        <div class="bg-purple-50 dark:bg-purple-900/30 p-4 rounded-lg">
-                            <h4 class="font-semibold text-purple-800 dark:text-purple-200"
-                                data-en="Claude 3.7"
-                                data-es="Claude 3.7">Claude 3.7</h4>
-                            <p class="text-sm text-purple-600 dark:text-purple-300"
-                               data-en="Deep thoughts, creativity"
-                               data-es="Reflexión profunda, creatividad">Deep thoughts, creativity</p>
-                        </div>
-                        <!-- Gemini 2.5 Card -->
-                        <div class="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg">
-                            <h4 class="font-semibold text-green-800 dark:text-green-200"
-                                data-en="Gemini 2.5"
-                                data-es="Gemini 2.5">Gemini 2.5</h4>
-                            <p class="text-sm text-green-600 dark:text-green-300"
-                               data-en="Fast, affordable, visual tasks"
-                               data-es="Rápido, económico, tareas visuales">Fast, affordable, visual tasks</p>
-                        </div>
+            <!-- AI Model Quick Guide -->
+            <div class="max-w-4xl mx-auto mb-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-6">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                    🚀 Quick AI Model Guide
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- GPT-4o Card -->
+                    <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 dark:text-blue-200">GPT-4o</h4>
+                        <p class="text-sm text-blue-600 dark:text-blue-300">Smart, fast, handles images well</p>
                     </div>
-                    <div class="mt-4 text-center">
-                        <a href="/GenAiModels.html" class="text-primary dark:text-blue-400 hover:underline text-sm font-medium"
-                           data-en="View full model comparison →"
-                           data-es="Ver comparación completa de modelos →">
-                            View full model comparison →
-                        </a>
+                    <!-- Claude 3.7 Card -->
+                    <div class="bg-purple-50 dark:bg-purple-900/30 p-4 rounded-lg">
+                        <h4 class="font-semibold text-purple-800 dark:text-purple-200">Claude 3.7</h4>
+                        <p class="text-sm text-purple-600 dark:text-purple-300">Deep thoughts, creativity</p>
+                    </div>
+                    <!-- Gemini 2.5 Card -->
+                    <div class="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 dark:text-green-200">Gemini 2.5</h4>
+                        <p class="text-sm text-green-600 dark:text-green-300">Fast, affordable, visual tasks</p>
                     </div>
                 </div>
+                <div class="mt-4 text-center">
+                    <a href="/GenAiModels.html" class="text-primary dark:text-blue-400 hover:underline text-sm font-medium">
+                        View full model comparison →
+                    </a>
+                </div>
+            </div>
 
-                <!-- Career Insights Prelude -->
-                <div class="max-w-4xl mx-auto mb-8">
-                    <div class="bg-gradient-to-r from-primary/10 to-blue-500/10 dark:from-primary/20 dark:to-blue-500/20 rounded-xl p-6 backdrop-blur-sm">
-                        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                            <!-- Career Text Content -->
-                            <div class="text-left">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2"
-                                    data-en="Explore AI Career Opportunities"
-                                    data-es="Explora Oportunidades de Carrera en IA">
-                                    💼 Explore AI Career Opportunities
-                                </h3>
-                                <p class="text-gray-600 dark:text-gray-300"
-                                   data-en="Discover the latest trends, competitive salaries, and exciting roles in AI and automation"
-                                   data-es="Descubre las últimas tendencias, salarios competitivos y roles emocionantes en IA y automatización">
-                                   Discover the latest trends, competitive salaries, and exciting roles in AI and automation
-                                </p>
-                            </div>
-                            <!-- Career Indicators -->
-                            <div class="flex items-center gap-4">
-                                <div class="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                                    <span class="flex items-center" data-en="Growing Market" data-es="Mercado en Crecimiento">
-                                        <i class="fas fa-chart-line text-primary mr-1"></i> Growing Market
-                                    </span>
-                                    <span class="flex items-center" data-en="Competitive Salaries" data-es="Salarios Competitivos">
-                                        <i class="fas fa-dollar-sign text-green-500 mr-1"></i> Competitive Salaries
-                                    </span>
-                                    <span class="flex items-center" data-en="Career Growth" data-es="Crecimiento Profesional">
-                                        <i class="fas fa-rocket text-purple-500 mr-1"></i> Career Growth
-                                    </span>
-                                </div>
+            <!-- Career Insights Prelude -->
+            <div class="max-w-4xl mx-auto mb-8">
+                <div class="bg-gradient-to-r from-primary/10 to-blue-500/10 dark:from-primary/20 dark:to-blue-500/20 rounded-xl p-6 backdrop-blur-sm">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <!-- Career Text Content -->
+                        <div class="text-left">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                                💼 Explore AI Career Opportunities
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Discover the latest trends, competitive salaries, and exciting roles in AI and automation
+                            </p>
+                        </div>
+                        <!-- Career Indicators -->
+                        <div class="flex items-center gap-4">
+                            <div class="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                                <span class="flex items-center">
+                                    <i class="fas fa-chart-line text-primary mr-1"></i> Growing Market
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-dollar-sign text-green-500 mr-1"></i> Competitive Salaries
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-rocket text-purple-500 mr-1"></i> Career Growth
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Call to Action Buttons -->
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="/jobs.html" class="group bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105"
-                       data-en="See Jobs" data-es="Ver Trabajos">
-                        <span class="flex items-center">
-                            <i class="fas fa-briefcase mr-2"></i>
-                            <span data-en="See Jobs" data-es="Ver Trabajos">See Jobs</span>
-                        </span>
-                    </a>
-                    <a href="/services.html" class="group bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 border border-gray-200 dark:border-gray-700"
-                       data-en="Our Services" data-es="Nuestros Servicios">
-                        <span class="flex items-center">
-                            <i class="fas fa-cogs mr-2"></i>
-                            <span data-en="Our Services" data-es="Nuestros Servicios">Our Services</span>
-                        </span>
-                    </a>
-                </div>
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/jobs.html" class="group bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
+                    <span class="flex items-center">
+                        <i class="fas fa-briefcase mr-2"></i>
+                        <span>See Jobs</span>
+                    </span>
+                </a>
+                <a href="/services.html" class="group bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 border border-gray-200 dark:border-gray-700">
+                    <span class="flex items-center">
+                        <i class="fas fa-cogs mr-2"></i>
+                        <span>Our Services</span>
+                    </span>
+                </a>
             </div>
         </div>
     </section>
@@ -394,16 +265,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-file-alt text-2xl text-primary"></i>
                     </div>
-                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-en="Future of Work 2025" data-es="Futuro del Trabajo 2025">Future of Work 2025</h2>
-                    <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto" data-en="Download our comprehensive report on the future of work and automation trends. Learn how AI and automation will shape the workplace of tomorrow." data-es="Descarga nuestro informe completo sobre el futuro del trabajo y las tendencias de automatización. Descubre cómo la IA y la automatización darán forma al lugar de trabajo del mañana.">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Future of Work 2025</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
                         Download our comprehensive report on the future of work and automation trends. Learn how AI and automation will shape the workplace of tomorrow.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="Future_of_Work_2025.pdf" class="inline-flex items-center justify-center bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105" data-en="Download PDF" data-es="Descargar PDF">
+                        <a href="Future_of_Work_2025.pdf" class="inline-flex items-center justify-center bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
                             <i class="fas fa-file-download mr-2"></i>
                             Download PDF
                         </a>
-                        <a href="#contact" class="inline-flex items-center justify-center border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105" data-en="Discuss Report" data-es="Discutir Informe">
+                        <a href="#contact" class="inline-flex items-center justify-center border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
                             <i class="fas fa-comments mr-2"></i>
                             Discuss Report
                         </a>
@@ -424,7 +295,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Video Section -->
     <section id="video" class="py-16 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8" data-en="See How It Works" data-es="Ver Cómo Funciona">See How It Works</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">See How It Works</h2>
             <div class="aspect-w-16 aspect-h-9 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
                 <iframe class="w-full h-[400px] rounded-lg shadow-lg" 
                     src="https://www.youtube.com/embed/J8RQmw1oA-Y"
@@ -440,12 +311,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Case Studies Section -->
     <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12" data-en="Success Stories" data-es="Casos de Éxito">Success Stories</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Success Stories</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4" data-en="Manufacturing Process Automation" data-es="Automatización de Procesos de Manufactura">Manufacturing Process Automation</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-en="Implemented RPA solutions to automate quality control processes, resulting in 60% faster processing times and 40% cost reduction." data-es="Implementamos soluciones RPA para automatizar procesos de control de calidad, logrando un 60% más rápido en tiempos de procesamiento y una reducción del 40% en costos.">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Manufacturing Process Automation</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
                             Implemented RPA solutions to automate quality control processes, resulting in 60% faster processing times and 40% cost reduction.
                         </p>
                         <div class="flex items-center">
@@ -453,16 +324,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <i class="fas fa-industry text-2xl text-primary"></i>
                             </div>
                             <div class="ml-4">
-                                <p class="text-sm font-medium text-gray-900 dark:text-white" data-en="Manufacturing Industry" data-es="Industria Manufacturera">Manufacturing Industry</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-400" data-en="Process Automation Case Study" data-es="Caso de Estudio de Automatización">Process Automation Case Study</p>
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">Manufacturing Industry</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Process Automation Case Study</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4" data-en="Cloud Migration Success" data-es="Éxito en Migración Cloud">Cloud Migration Success</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-en="Helped a financial services company migrate to cloud infrastructure, achieving 99.9% uptime and 50% cost savings." data-es="Ayudamos a una empresa de servicios financieros a migrar a infraestructura cloud, logrando un 99.9% de tiempo de actividad y un ahorro del 50% en costos.">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Cloud Migration Success</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
                             Helped a financial services company migrate to cloud infrastructure, achieving 99.9% uptime and 50% cost savings.
                         </p>
                         <div class="flex items-center">
@@ -470,8 +341,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <i class="fas fa-chart-line text-2xl text-primary"></i>
                             </div>
                             <div class="ml-4">
-                                <p class="text-sm font-medium text-gray-900 dark:text-white" data-en="Financial Services" data-es="Servicios Financieros">Financial Services</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-400" data-en="Cloud Migration Case Study" data-es="Caso de Estudio de Migración Cloud">Cloud Migration Case Study</p>
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">Financial Services</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Cloud Migration Case Study</p>
                             </div>
                         </div>
                     </div>
@@ -480,84 +351,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <!-- Testimonials Section (Temporarily Disabled)
-    <section class="py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12" data-en="Client Testimonials" data-es="Testimonios de Clientes">Client Testimonials</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-quote-left text-2xl text-primary"></i>
-                        </div>
-                        <div class="ml-4">
-                            <p class="text-gray-600 dark:text-gray-300" data-en="Catalitium transformed our business processes with their RPA solutions. The efficiency gains were remarkable." data-es="Catalitium transformó nuestros procesos empresariales con sus soluciones RPA. Las mejoras en eficiencia fueron notables.">
-                                Catalitium transformed our business processes with their RPA solutions. The efficiency gains were remarkable.
-                            </p>
-                            <p class="mt-2 text-sm font-medium text-gray-900 dark:text-white">John Smith</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400" data-en="Operations Director, TechCorp" data-es="Director de Operaciones, TechCorp">Operations Director, TechCorp</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-quote-left text-2xl text-primary"></i>
-                        </div>
-                        <div class="ml-4">
-                            <p class="text-gray-600 dark:text-gray-300" data-en="Their cloud solutions helped us scale our operations efficiently. Highly recommended for digital transformation." data-es="Sus soluciones cloud nos ayudaron a escalar nuestras operaciones de manera eficiente. Muy recomendado para transformación digital.">
-                                Their cloud solutions helped us scale our operations efficiently. Highly recommended for digital transformation.
-                            </p>
-                            <p class="mt-2 text-sm font-medium text-gray-900 dark:text-white">Sarah Johnson</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400" data-en="CTO, InnovateTech" data-es="CTO, InnovateTech">CTO, InnovateTech</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-quote-left text-2xl text-primary"></i>
-                        </div>
-                        <div class="ml-4">
-                            <p class="text-gray-600 dark:text-gray-300" data-en="The Python automation scripts they developed saved us countless hours of manual work." data-es="Los scripts de automatización con Python que desarrollaron nos ahorraron innumerables horas de trabajo manual.">
-                                The Python automation scripts they developed saved us countless hours of manual work.
-                            </p>
-                            <p class="mt-2 text-sm font-medium text-gray-900 dark:text-white">Michael Brown</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400" data-en="IT Manager, DataFlow" data-es="Gerente de IT, DataFlow">IT Manager, DataFlow</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
-
     <!-- FAQ Section -->
     <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12" data-en="Frequently Asked Questions" data-es="Preguntas Frecuentes">Frequently Asked Questions</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Frequently Asked Questions</h2>
             <div class="space-y-6">
                 <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2" data-en="What is RPA and how can it benefit my business?" data-es="¿Qué es RPA y cómo puede beneficiar a mi negocio?">What is RPA and how can it benefit my business?</h3>
-                    <p class="text-gray-600 dark:text-gray-300" data-en="Robotic Process Automation (RPA) uses software robots to automate repetitive tasks, reducing manual work and human error. Benefits include increased productivity, cost savings, and improved accuracy in business processes." data-es="La Automatización Robótica de Procesos (RPA) utiliza robots de software para automatizar tareas repetitivas, reduciendo el trabajo manual y los errores humanos. Los beneficios incluyen mayor productividad, ahorro de costos y mejor precisión en los procesos empresariales.">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">What is RPA and how can it benefit my business?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
                         Robotic Process Automation (RPA) uses software robots to automate repetitive tasks, reducing manual work and human error. Benefits include increased productivity, cost savings, and improved accuracy in business processes.
                     </p>
                 </div>
                 <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2" data-en="How long does it take to implement automation solutions?" data-es="¿Cuánto tiempo se tarda en implementar soluciones de automatización?">How long does it take to implement automation solutions?</h3>
-                    <p class="text-gray-600 dark:text-gray-300" data-en="Implementation time varies based on project complexity. Simple automation tasks can be completed in weeks, while comprehensive digital transformation projects may take several months. We provide detailed timelines during our initial consultation." data-es="El tiempo de implementación varía según la complejidad del proyecto. Las tareas simples de automatización pueden completarse en semanas, mientras que los proyectos integrales de transformación digital pueden tomar varios meses. Proporcionamos cronogramas detallados durante nuestra consulta inicial.">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">How long does it take to implement automation solutions?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
                         Implementation time varies based on project complexity. Simple automation tasks can be completed in weeks, while comprehensive digital transformation projects may take several months. We provide detailed timelines during our initial consultation.
                     </p>
                 </div>
                 <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2" data-en="What industries do you serve?" data-es="¿A qué industrias sirven?">What industries do you serve?</h3>
-                    <p class="text-gray-600 dark:text-gray-300" data-en="We serve various industries including manufacturing, financial services, healthcare, retail, and technology. Our solutions are customized to meet specific industry requirements and compliance standards." data-es="Servimos a diversas industrias, incluyendo manufactura, servicios financieros, salud, retail y tecnología. Nuestras soluciones están personalizadas para cumplir con requisitos específicos de la industria y estándares de cumplimiento.">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">What industries do you serve?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
                         We serve various industries including manufacturing, financial services, healthcare, retail, and technology. Our solutions are customized to meet specific industry requirements and compliance standards.
                     </p>
                 </div>
                 <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2" data-en="Do you provide ongoing support and maintenance?" data-es="¿Proporcionan soporte y mantenimiento continuo?">Do you provide ongoing support and maintenance?</h3>
-                    <p class="text-gray-600 dark:text-gray-300" data-en="Yes, we offer comprehensive support and maintenance packages to ensure your automation solutions continue to operate efficiently. This includes regular updates, monitoring, and technical assistance." data-es="Sí, ofrecemos paquetes integrales de soporte y mantenimiento para asegurar que sus soluciones de automatización sigan funcionando de manera eficiente. Esto incluye actualizaciones regulares, monitoreo y asistencia técnica.">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Do you provide ongoing support and maintenance?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
                         Yes, we offer comprehensive support and maintenance packages to ensure your automation solutions continue to operate efficiently. This includes regular updates, monitoring, and technical assistance.
                     </p>
                 </div>
@@ -568,140 +387,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Contact Section -->
     <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-en="Ready to Transform Your Business?" data-es="¿Listo para Transformar tu Negocio?">Ready to Transform Your Business?</h2>
-            <p class="text-gray-600 dark:text-gray-300 mb-8" data-en="Get in touch with us to learn how we can help you achieve your automation goals." data-es="Contáctanos para descubrir cómo podemos ayudarte a alcanzar tus objetivos de automatización.">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Ready to Transform Your Business?</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-8">
                 Get in touch with us to learn how we can help you achieve your automation goals.
             </p>
-            <a href="mailto:catalitium@gmail.com" class="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors" data-en="Contact Us" data-es="Contáctanos">
+            <a href="mailto:catalitium@outlook.com" class="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-envelope mr-2"></i>
                 Contact Us
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Catalitium</h3>
-                    <p class="text-gray-600 dark:text-gray-400" data-en="Innovating business through intelligent automation" data-es="Innovando negocios a través de la automatización inteligente">
-                        Innovating business through intelligent automation
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-robot text-primary text-2xl mr-2"></i>
+                        <span class="text-2xl font-bold">Catalitium</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Transforming businesses through automation and digital innovation. Leading provider of RPA solutions, Python automation, and cloud computing services in Spain.
                     </p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4" data-en="Contact" data-es="Contacto">Contact</h3>
-                    <p class="text-gray-600 dark:text-gray-400">catalitium@outlook.com</p>
-                    <p class="text-gray-600 dark:text-gray-400">+34 (622) 1546-50</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4" data-en="Connect" data-es="Conecta">Connect</h3>
-                    <div class="flex justify-center md:justify-start space-x-4">
-                        <a href="https://www.linkedin.com/in/catalitiumes/" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/catalitiumes/" class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-linkedin text-xl"></i>
                         </a>
-                        <a href="https://twitter.com/catalitium" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                        <a href="https://twitter.com/catalitium" class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-twitter text-xl"></i>
                         </a>
-                        <a href="https://github.com/Catalitium" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                        <a href="https://github.com/Catalitium" class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-github text-xl"></i>
                         </a>
                     </div>
                 </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="/services.html" class="hover:text-white transition-colors">RPA Solutions</a></li>
+                        <li><a href="/services.html" class="hover:text-white transition-colors">Python Automation</a></li>
+                        <li><a href="/services.html" class="hover:text-white transition-colors">Cloud Computing</a></li>
+                        <li><a href="/services.html" class="hover:text-white transition-colors">Digital Transformation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="mailto:catalitium@outlook.com" class="hover:text-white transition-colors">catalitium@outlook.com</a></li>
+                        <li>+34 (622) 1546-50</li>
+                        <li>Madrid, Spain</li>
+                    </ul>
+                </div>
             </div>
-            <div class="mt-8 text-center text-gray-600 dark:text-gray-400">
-                <p>&copy; 2024 Catalitium.com. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Catalitium. All rights reserved. | Madrid, Spain</p>
             </div>
         </div>
     </footer>
 
-    <!-- Schema Organization Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Catalitium",
-        "url": "https://www.catalitium.com",
-        "logo": "https://www.catalitium.com/logo.png",
-        "description": "Leading provider of RPA solutions, Python automation, cloud computing, and digital transformation services in Spain and Europe",
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "ES",
-            "addressRegion": "Madrid"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+34 (622) 1546-50",
-            "contactType": "customer service",
-            "email": "catalitium@outlook.com",
-            "availableLanguage": ["English", "Spanish"]
-        },
-        "sameAs": [
-            "https://www.linkedin.com/in/catalitiumes/",
-            "https://twitter.com/catalitium",
-            "https://github.com/Catalitium"
-        ],
-        "offers": [
-            {
-                "@type": "Offer",
-                "name": "RPA Solutions",
-                "description": "Robotic Process Automation solutions for business process optimization",
-                "price": "Contact for pricing",
-                "priceCurrency": "EUR"
-            },
-            {
-                "@type": "Offer",
-                "name": "Python Automation",
-                "description": "Custom Python automation scripts for business process automation",
-                "price": "Contact for pricing",
-                "priceCurrency": "EUR"
-            },
-            {
-                "@type": "Offer",
-                "name": "Cloud Computing Services",
-                "description": "Cloud infrastructure and migration services",
-                "price": "Contact for pricing",
-                "priceCurrency": "EUR"
-            },
-            {
-                "@type": "Offer",
-                "name": "Digital Transformation",
-                "description": "Comprehensive digital transformation services including web development and database management",
-                "price": "Contact for pricing",
-                "priceCurrency": "EUR"
-            }
-        ],
-        "areaServed": [
-            {
-                "@type": "Country",
-                "name": "Spain"
-            },
-            {
-                "@type": "Country",
-                "name": "Europe"
-            }
-        ],
-        "knowsAbout": [
-            "RPA",
-            "Python Automation",
-            "Cloud Computing",
-            "Digital Transformation",
-            "Web Development",
-            "Database Management",
-            "Business Process Automation",
-            "Cloud Architecture",
-            "IT Consulting",
-            "AI Integration",
-            "Workflow Automation",
-            "Business Efficiency",
-            "Process Optimization"
-        ],
-        "foundingDate": "2024",
-        "legalStatus": "Active",
-        "slogan": "Innovating business through intelligent automation"
-    }
-    </script>
-
-    <!-- Additional Schema Markup for FAQ -->
+    <!-- Schema Markup for FAQ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -743,6 +488,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     </script>
 
-    <script src="script.js"></script>
+    <!-- Optimized Scripts -->
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+        
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+        
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

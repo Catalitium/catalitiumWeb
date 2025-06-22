@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for your dream job with Catalitium. Simple, fast job application form for tech positions worldwide.">
+    <meta name="keywords" content="job application, tech jobs, career opportunities, Catalitium, employment">
+    <meta name="author" content="Catalitium">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Job Application | Catalitium">
+    <meta property="og:description" content="Apply for your dream job with Catalitium. Simple, fast job application form.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.catalitium.com/job-apply/">
+    <meta property="og:site_name" content="Catalitium">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Job Application | Catalitium">
+    <meta name="twitter:description" content="Apply for your dream job with Catalitium.">
+    <link rel="canonical" href="https://www.catalitium.com/job-apply/">
+    <title>Job Application | Catalitium</title>
+    
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MNJ9SSL9');</script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N8G6ZYS32D', {
+            page_title: 'Job Application',
+            page_location: window.location.href
+        });
+    </script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/job-apply.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNJ9SSL9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="nav-logo">Catalitium</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/jobs.html" class="nav-link">Jobs</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="header">
+            <h1>Job Application</h1>
+            <p>Submit your application for the position</p>
+        </div>
+
+        <form name="job-application" method="POST" data-netlify="true" enctype="multipart/form-data" novalidate>
+            <!-- Netlify fields -->
+            <p class="hidden">
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+            <input type="hidden" name="form-name" value="job-application" />
+
+            <!-- Essential job information (consolidated) -->
+            <input type="hidden" id="jobTitle" name="jobTitle">
+            <input type="hidden" id="company" name="company">
+            <input type="hidden" id="location" name="location">
+            <input type="hidden" id="salary" name="salary">
+
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+
+            <div class="form-group">
+                <div class="toggle-container" id="toggleContainer">
+                    <label class="toggle-label" for="workPermit">Work permit required</label>
+                    <div class="toggle-switch" id="toggleSwitch"></div>
+                    <input type="checkbox" id="workPermit" name="workPermit" class="toggle-input">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="resume">Resume/CV *</label>
+                <div class="file-upload" id="fileUpload" role="button" tabindex="0" aria-label="Upload resume">
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                    <i>📁</i>
+                    <div id="fileText">Click to upload or drag and drop</div>
+                    <small>PDF, DOC, or DOCX files only (max 5MB)</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="coverLetter">Cover Letter</label>
+                <textarea id="coverLetter" name="coverLetter" placeholder="Tell us why you're interested in this position..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Submit Application
+            </button>
+        </form>
+    </main>
+
+    <!-- External JavaScript -->
+    <script src="js/job-apply.js"></script>
+</body>
+</html> 

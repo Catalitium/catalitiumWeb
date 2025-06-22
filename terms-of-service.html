@@ -100,82 +100,116 @@
         }
     </style>
 </head>
-<body class="bg-white dark:bg-gray-900">
+<body class="bg-white dark:bg-gray-900 transition-colors duration-300">
     <!-- Loading Screen -->
     <div class="loading">
         <div class="loading-spinner"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-200">
+    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="/" class="flex items-center">
-                        <span class="text-2xl font-bold text-primary dark:text-white">
-                            <i class="fas fa-robot mr-2"></i>Catalitium
-                        </span>
+                    <a href="/" class="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+                        <i class="fas fa-robot text-primary mr-2"></i>
+                        Catalitium
                     </a>
                 </div>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
-                    <a href="/about" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
-                    <a href="/services" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
-                    <a href="/contact" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
-                    <button id="darkModeToggle" class="p-2 rounded-lg text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:block"></i>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
+                    <a href="/jobs.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Jobs</a>
+                    <a href="/services.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Services</a>
+                    <a href="/contact.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <i class="fas fa-moon dark:hidden text-gray-600"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
                     </button>
+                    <a href="/jobs.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-briefcase mr-2"></i>
+                        See Jobs
+                    </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobileMenuButton" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
-                        <i class="fas fa-bars text-xl"></i>
+                <div class="flex items-center lg:hidden">
+                    <button id="mobileMenuButton" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="/" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Home</a>
-                <a href="/about" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">About</a>
-                <a href="/services" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Services</a>
-                <a href="/contact" class="block px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Contact</a>
-                <button id="mobileDarkModeToggle" class="w-full text-left px-3 py-2 text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200">
-                    <i class="fas fa-moon dark:hidden mr-2"></i>
-                    <i class="fas fa-sun hidden dark:block mr-2"></i>
-                    Toggle Dark Mode
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 py-3 space-y-3">
+                <a href="/about.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
+                <a href="/jobs.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Jobs</a>
+                <a href="/services.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Services</a>
+                <a href="/contact.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
+                <button id="mobileDarkModeToggle" class="w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <i class="fas fa-moon dark:hidden text-gray-600"></i>
+                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                    <span class="ml-2">Toggle Dark Mode</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <main class="terms-page">
-        <section class="hero-section">
-            <h1>Terms of Service</h1>
-            <p>Last updated: March 2024</p>
-        </section>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 gradient-bg relative overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%233B82F6\' fill-opacity=\'0.1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
 
-        <section class="terms-content">
-            <div class="terms-section">
-                <h2>1. Agreement to Terms</h2>
-                <p>By accessing or using our website and services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.</p>
+        <div class="max-w-7xl mx-auto text-center relative">
+            <div class="animate-fade-in">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    Terms of Service
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                    Last updated: December 19, 2024
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto">
+            <!-- Agreement to Terms -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mb-8" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <i class="fas fa-file-contract text-primary mr-3"></i>
+                    1. Agreement to Terms
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300">
+                    By accessing or using our website and services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.
+                </p>
             </div>
 
-            <div class="terms-section">
-                <h2>2. Intellectual Property</h2>
-                <p>The content, features, and functionality of our website and services, including but not limited to text, graphics, logos, and software, are the exclusive property of Catalitium and are protected by international copyright, trademark, and other intellectual property laws.</p>
+            <!-- Intellectual Property -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mb-8" data-aos="fade-up" data-aos-delay="100">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <i class="fas fa-copyright text-primary mr-3"></i>
+                    2. Intellectual Property
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300">
+                    The content, features, and functionality of our website and services, including but not limited to text, graphics, logos, and software, are the exclusive property of Catalitium and are protected by international copyright, trademark, and other intellectual property laws.
+                </p>
             </div>
 
-            <div class="terms-section">
-                <h2>3. User Responsibilities</h2>
-                <p>When using our services, you agree to:</p>
-                <ul>
+            <!-- User Responsibilities -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mb-8" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <i class="fas fa-user-shield text-primary mr-3"></i>
+                    3. User Responsibilities
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">When using our services, you agree to:</p>
+                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
                     <li>Provide accurate and complete information</li>
                     <li>Maintain the security of your account</li>
                     <li>Not use our services for any illegal purposes</li>
@@ -184,88 +218,145 @@
                 </ul>
             </div>
 
-            <div class="terms-section">
-                <h2>4. Service Modifications</h2>
-                <p>We reserve the right to modify or discontinue our services at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuance of our services.</p>
+            <!-- Data Collection and Processing -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mb-8" data-aos="fade-up" data-aos-delay="250">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <i class="fas fa-database text-primary mr-3"></i>
+                    4. Data Collection and Processing
+                </h2>
+                <div class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                    <p class="mb-4">
+                        By accessing and using our services, you acknowledge and consent to our collection, processing, storage, and analysis of various types of information, including but not limited to personal data, technical information, usage patterns, and interaction data. This information may be collected through automated means, including cookies, web beacons, server logs, and similar technologies.
+                    </p>
+                    <p class="mb-4">
+                        We may collect and process the following categories of information: (a) personal information such as name, email address, contact details, and professional information; (b) technical information including IP addresses, device identifiers, browser type, operating system, and network information; (c) usage data such as pages visited, features accessed, time spent on services, and interaction patterns; (d) session metadata including timestamps, referral sources, and navigation paths; and (e) any other information you voluntarily provide or that is necessary for service delivery.
+                    </p>
+                    <p class="mb-4">
+                        We utilize this information to provide, maintain, and enhance our services; ensure security and prevent fraud; personalize your experience and optimize service performance; conduct research and analysis for service improvement; comply with legal obligations; and support our business operations. We may also use aggregated or anonymized data for statistical analysis, research purposes, and service optimization.
+                    </p>
+                    <p class="mb-4">
+                        We may share your information with trusted third-party service providers, affiliates, and business partners who assist us in operating our services, conducting business, or serving users. Such sharing may occur for purposes including but not limited to data processing, analytics, customer support, and service enhancement. We ensure that all third parties maintain appropriate security measures and use your information only as directed by us.
+                    </p>
+                    <p class="mb-4">
+                        We may also disclose your information when required by law, to protect our rights and safety, to prevent fraud or abuse, or in connection with a business transfer such as a merger, acquisition, or sale of assets. In such cases, we will provide appropriate notice where legally required.
+                    </p>
+                    <p class="mb-4">
+                        Your continued use of our services constitutes acceptance of our data collection and processing practices as described herein. We may update these practices from time to time, and such updates will be effective upon posting. Your continued use of our services after any such changes constitutes acceptance of the updated practices.
+                    </p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 italic">
+                        For detailed information about our data practices, your rights, and opt-out options, please review our Privacy Policy. You may contact us at any time to exercise your data rights or request information about our data processing activities.
+                    </p>
+                </div>
             </div>
 
-            <div class="terms-section">
-                <h2>5. Limitation of Liability</h2>
-                <p>Catalitium shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use our services.</p>
+            <!-- Service Modifications -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mb-8" data-aos="fade-up" data-aos-delay="300">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <i class="fas fa-cogs text-primary mr-3"></i>
+                    5. Service Modifications
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300">
+                    We reserve the right to modify or discontinue our services at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuance of our services.
+                </p>
             </div>
 
-            <div class="terms-section">
-                <h2>6. Governing Law</h2>
-                <p>These Terms of Service shall be governed by and construed in accordance with the laws of Spain, without regard to its conflict of law provisions.</p>
+            <!-- Limitation of Liability -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mb-8" data-aos="fade-up" data-aos-delay="400">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <i class="fas fa-exclamation-triangle text-primary mr-3"></i>
+                    6. Limitation of Liability
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Catalitium shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use our services.
+                </p>
             </div>
 
-            <div class="terms-section">
-                <h2>7. Changes to Terms</h2>
-                <p>We reserve the right to update or change our Terms of Service at any time. We will notify you of any changes by posting the new Terms of Service on this page.</p>
+            <!-- Governing Law -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mb-8" data-aos="fade-up" data-aos-delay="500">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <i class="fas fa-balance-scale text-primary mr-3"></i>
+                    7. Governing Law
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300">
+                    These Terms of Service shall be governed by and construed in accordance with the laws of Spain, without regard to its conflict of law provisions.
+                </p>
             </div>
 
-            <div class="terms-section">
-                <h2>8. Contact Information</h2>
-                <p>If you have any questions about these Terms of Service, please contact us at:</p>
-                <p>Email: legal@catalitium.com</p>
-                <p>Address: Madrid, Spain</p>
+            <!-- Changes to Terms -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mb-8" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <i class="fas fa-edit text-primary mr-3"></i>
+                    8. Changes to Terms
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300">
+                    We reserve the right to update or change our Terms of Service at any time. We will notify you of any changes by posting the new Terms of Service on this page. Your continued use of our services after any such changes constitutes acceptance of the updated terms.
+                </p>
             </div>
-        </section>
-    </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Catalitium</h3>
-                <p>Transforming businesses through automation and digital solutions.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: catalitium@gmail.com</p>
-                <p>Phone: +34 622154650</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">Twitter</a>
-                    <a href="#" target="_blank">GitHub</a>
+            <!-- Contact Information -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mb-8" data-aos="fade-up" data-aos-delay="700">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                    <i class="fas fa-address-card text-primary mr-3"></i>
+                    9. Contact Information
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">If you have any questions about these Terms of Service, please contact us at:</p>
+                <div class="space-y-2 text-gray-600 dark:text-gray-300">
+                    <p><strong>Email:</strong> <a href="mailto:catalitium@outlook.com" class="text-primary hover:underline">catalitium@outlook.com</a></p>
+                    <p><strong>Phone:</strong> +34 (622) 1546-50</p>
+                    <p><strong>Address:</strong> Madrid, Spain</p>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Catalitium. All rights reserved.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-robot text-primary text-2xl mr-2"></i>
+                        <span class="text-2xl font-bold">Catalitium</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Transforming businesses through automation and digital innovation. Leading provider of RPA solutions, Python automation, and cloud computing services in Spain.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="/services.html" class="hover:text-white transition-colors">RPA Solutions</a></li>
+                        <li><a href="/services.html" class="hover:text-white transition-colors">Python Automation</a></li>
+                        <li><a href="/services.html" class="hover:text-white transition-colors">Cloud Computing</a></li>
+                        <li><a href="/services.html" class="hover:text-white transition-colors">Digital Transformation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="/terms.html" class="hover:text-white transition-colors">Privacy & Legal</a></li>
+                        <li><a href="/terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="/support.html" class="hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Catalitium. All rights reserved. | Madrid, Spain</p>
+            </div>
         </div>
     </footer>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8G6ZYS32D"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-N8G6ZYS32D');
-
-        // Track terms of service page interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            // Track section views
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        gtag('event', 'section_view', {
-                            'event_category': 'terms_of_service',
-                            'event_label': entry.target.querySelector('h2').textContent,
-                            'value': 1
-                        });
-                    }
-                });
-            });
-
-            document.querySelectorAll('.terms-section').forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
@@ -278,43 +369,43 @@
             easing: 'ease-in-out'
         });
 
-        // Dark mode functionality
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loading = document.querySelector('.loading');
+            loading.classList.add('hidden');
+        });
+
+        // Dark mode toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
         const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
-        const html = document.documentElement;
-
+        
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+        
         // Check for saved dark mode preference
         if (localStorage.getItem('darkMode') === 'true' || 
             (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
+            document.documentElement.classList.add('dark');
         }
 
-        // Toggle dark mode
-        function toggleDarkMode() {
-            html.classList.toggle('dark');
-            localStorage.setItem('darkMode', html.classList.contains('dark'));
-        }
-
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-        mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
-
-        // Mobile menu functionality
+        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const mobileMenu = document.getElementById('mobileMenu');
-        let isMobileMenuOpen = false;
-
-        mobileMenuButton.addEventListener('click', () => {
-            isMobileMenuOpen = !isMobileMenuOpen;
+        
+        mobileMenuButton.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
-            mobileMenuButton.innerHTML = isMobileMenuOpen ? 
-                '<i class="fas fa-times text-gray-600 dark:text-gray-300"></i>' : 
-                '<i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>';
         });
 
-        // Loading animation
-        window.addEventListener('load', () => {
-            const loader = document.querySelector('.loading');
-            loader.classList.add('hidden');
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
         });
     </script>
 </body>
