@@ -3,7 +3,7 @@ let jobData = [];
 let salaryData = [];
 let currentPage = 1;
 const jobsPerPage = 10;
-let searchStartTime = null;
+let searchStartTime = 0;
 
 // Performance monitoring
 const performanceMetrics = {
@@ -61,8 +61,6 @@ function initializeUI() {
 // Load data from CSV files
 async function loadData() {
     try {
-        console.log('Starting data load...');
-        
         // Show loading spinner
         const elements = getElements();
         if (elements.loading) {
@@ -128,7 +126,6 @@ function parseCSV(text) {
         }
 
         let headers = lines[0].split('\t').map(header => header.trim());
-        console.log('Initial CSV Headers:', headers);
         
         const data = [];
         let currentHeaders = headers;
@@ -143,14 +140,11 @@ function parseCSV(text) {
             // Check if this line is a new header (starts with "JobID")
             if (values[0] === 'JobID') {
                 currentHeaders = values;
-                console.log('New header detected at line', i + 1, ':', currentHeaders);
                 continue;
             }
             
             // Handle rows with different column counts
             if (values.length !== currentHeaders.length) {
-                console.warn(`Line ${i + 1} has ${values.length} columns but header has ${currentHeaders.length}:`, line);
-                
                 // If we have more values than headers, truncate
                 if (values.length > currentHeaders.length) {
                     values.splice(currentHeaders.length);
@@ -171,16 +165,11 @@ function parseCSV(text) {
             // Count USA entries for debugging
             if (obj.Country === 'USA') {
                 usaCount++;
-                if (usaCount <= 3) {
-                    console.log(`USA entry ${usaCount} at line ${i + 1}:`, obj);
-                }
             }
             
             data.push(obj);
         }
 
-        console.log(`Parsed ${data.length} rows successfully`);
-        console.log(`Total USA entries found: ${usaCount}`);
         return data;
     } catch (error) {
         console.error('Error parsing CSV:', error);
@@ -198,19 +187,6 @@ function populateCountryOptions() {
     const jobCountries = [...new Set(jobData.map(job => job.Country))];
     const allCountries = [...new Set([...salaryCountries, ...jobCountries])];
     
-    console.log('Salary countries:', salaryCountries);
-    console.log('Job countries:', jobCountries);
-    console.log('All unique countries:', allCountries);
-    console.log('Total job data entries:', jobData.length);
-    console.log('Total salary data entries:', salaryData.length);
-    
-    // Check specifically for USA entries
-    const usaJobs = jobData.filter(job => job.Country === 'USA');
-    console.log('USA jobs found:', usaJobs.length);
-    if (usaJobs.length > 0) {
-        console.log('Sample USA job:', usaJobs[0]);
-    }
-    
     // Sort countries: USA first, Spain second, then alphabetically
     const sortedCountries = allCountries.sort((a, b) => {
         if (a === 'USA') return -1;
@@ -226,9 +202,6 @@ function populateCountryOptions() {
             <option value="${country}">${country}</option>
         `).join('')}
     `;
-    
-    console.log('Country dropdown populated with', sortedCountries.length, 'countries');
-    console.log('Sorted countries:', sortedCountries);
 }
 
 // Update UI based on user input
@@ -258,9 +231,15 @@ function updateUI() {
     updateSalaryInfo(country, jobTitle);
     updateJobListings(country, jobTitle);
     
-    // Log search performance
+    // Track search completion
     const searchTime = performance.now() - searchStartTime;
-    console.log(`Search completed in ${searchTime.toFixed(2)}ms`);
+    if (typeof gtag === 'function') {
+        gtag('event', 'search_completion', {
+            'search_time_ms': Math.round(searchTime),
+            'search_term': jobTitle,
+            'country': country
+        });
+    }
 }
 
 // Update salary information
@@ -295,10 +274,6 @@ function updateSalaryInfo(country, jobTitle) {
         return;
     }
 
-    // Debug log to check filtered data
-    console.log('Filtered salary data:', filteredData);
-    console.log('Total filtered jobs:', filteredJobs.length);
-
     let avgSalary = 0;
     let maxSalary = 0;
     let currency = 'USD';
@@ -332,15 +307,6 @@ function updateSalaryInfo(country, jobTitle) {
             maxSalary = Math.max(...validSalaries);
         }
     }
-
-    // Debug log to check calculations
-    console.log('Salary calculations:', {
-        avgSalary,
-        maxSalary,
-        jobCount,
-        currency,
-        sampleSalaries: filteredJobs.slice(0, 3).map(job => job.Salary)
-    });
 
     // Track salary insight view
     if (typeof trackSalaryInsight === 'function') {
@@ -471,18 +437,12 @@ function updateJobListings(country, jobTitle) {
 function calculateAverageSalary(jobs) {
     if (!jobs || jobs.length === 0) return 0;
     
-    // Debug log to check input data
-    console.log('Calculating average salary for jobs:', jobs.slice(0, 3));
-    
     const validSalaries = jobs
         .map(job => {
             const salary = parseFloat(job.MedianSalary);
             return isNaN(salary) ? null : salary;
         })
         .filter(salary => salary !== null && salary > 0);
-    
-    // Debug log to check valid salaries
-    console.log('Valid salaries:', validSalaries);
     
     if (validSalaries.length === 0) return 0;
     

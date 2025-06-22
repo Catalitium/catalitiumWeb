@@ -295,9 +295,16 @@ window.addEventListener('error', (e) => {
 
 // Performance Monitoring
 if ('performance' in window) {
-    window.addEventListener('load', () => {
+    window.addEventListener('load', function() {
         const timing = performance.getEntriesByType('navigation')[0];
-        console.log('Page load time:', timing.loadEventEnd - timing.navigationStart);
-        // Add performance monitoring logic here
+        if (timing) {
+            // Track page load performance
+            if (typeof gtag === 'function') {
+                gtag('event', 'page_load_time', {
+                    'load_time_ms': Math.round(timing.loadEventEnd - timing.navigationStart),
+                    'page_title': document.title
+                });
+            }
+        }
     });
 } 
