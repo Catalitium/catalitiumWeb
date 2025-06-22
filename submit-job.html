@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit a job opening to Catalitium's job portal. List your role for free and reach top tech talent.">
+    <meta name="keywords" content="submit job, post job, list job, job portal, employer, hiring, tech jobs, Catalitium">
+    <meta name="robots" content="index, follow">
+    <title>Submit a Job | Catalitium</title>
+    <link rel="icon" type="image/png" href="https://www.catalitium.com/favicon.png">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="css/job-apply.css">
+    <style>
+        .iframe-container { background: #fff; border-radius: 1rem; box-shadow: 0 2px 16px rgba(0,0,0,0.06); padding: 1.5rem; margin-bottom: 2rem; }
+        .responsive-iframe { width: 100%; min-width: 0; border: none; height: 1122px; max-width: 100%; border-radius: 0.5rem; }
+        @media (max-width: 700px) {
+            .container { padding: 1rem 0.5rem; }
+            .iframe-container { padding: 0.5rem; }
+            .responsive-iframe { height: 1300px; }
+        }
+        @media (max-width: 480px) {
+            .responsive-iframe { height: 1500px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="fixed w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800 shadow-md">
+        <div class="max-w-2xl mx-auto px-4 flex justify-between h-14 items-center">
+            <a href="/index.html" class="text-xl font-bold text-gray-900 dark:text-white flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                <i class="fas fa-robot text-primary mr-2"></i> Catalitium
+            </a>
+            <button id="mobileMenuButton" class="p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary lg:hidden" aria-label="Open menu">
+                <i class="fas fa-bars text-xl text-gray-600 dark:text-gray-300"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="fixed inset-0 z-50 bg-white/95 dark:bg-gray-900/95 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold hidden transition-all duration-300">
+            <button id="closeMobileMenu" class="absolute top-6 right-6 p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Close menu">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <a href="/index.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Home</a>
+            <a href="/jobs.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Jobs</a>
+            <a href="/about.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">About</a>
+            <a href="/contact.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Contact</a>
+        </div>
+        <script>
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeMobileMenu = document.getElementById('closeMobileMenu');
+            if (mobileMenuButton && mobileMenu && closeMobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                });
+                closeMobileMenu.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                });
+            }
+        </script>
+    </nav>
+    <main class="container max-w-2xl mx-auto py-20 px-4">
+        <div class="header text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Submit a Job Opening</h1>
+            <p class="text-gray-600 text-base md:text-lg">List your open role for free and reach top tech talent on Catalitium.</p>
+        </div>
+        <a href="/jobs.html" class="inline-block mb-6 text-primary font-semibold hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary text-base md:text-lg"><i class="fas fa-arrow-left mr-2"></i>Back to Jobs</a>
+        <div class="iframe-container">
+            <iframe class="responsive-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdXpRDhvq9WpPZ2tYz60LG-ngyoSTq2w2OuBsWspefaZB8ypg/viewform?embedded=true" allowfullscreen title="Submit a Job Form">Loading…</iframe>
+        </div>
+    </main>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Catalitium. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

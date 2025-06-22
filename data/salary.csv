@@ -40,4 +40,3 @@ GeoSalaryId	Location	MedianSalary	MinSalary	CurrencyTicker	City	Country	Region	R
 50	Greece (Remote)	32000	24000	EUR	NULL	Greece	Europe	Remote
 51	Luxembourg (Remote)	78000	60000	EUR	NULL	Luxembourg	Europe	Remote
 52	Caracas Venezuela (Remote)	12000	8000	USD	Caracas	Venezuela	South America	Remote
-

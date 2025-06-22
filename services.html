@@ -14,8 +14,8 @@
     <meta name="description" content="Explore Catalitium's comprehensive range of services including RPA solutions, cloud computing, and digital transformation. Transform your business with our expert services.">
     
     <!-- Primary Meta Tags -->
-    <title>Our Services | Catalitium - RPA & Digital Solutions</title>
-    <meta name="title" content="Our Services | Catalitium - RPA & Digital Solutions">
+    <title>Our Services | Catalitium - Digital Solutions</title>
+    <meta name="title" content="Our Services | Catalitium - Solutions">
     <meta name="description" content="Explore Catalitium's comprehensive range of services including RPA solutions, cloud computing, and digital transformation. Transform your business with our expert services.">
     
     <!-- Open Graph / Facebook -->
@@ -133,156 +133,157 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800">
+    <nav class="fixed w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="/" class="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+                    <a href="/" class="text-2xl font-bold text-gray-900 dark:text-white flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
                         <i class="fas fa-robot text-primary mr-2"></i>
                         Catalitium
                     </a>
                 </div>
-                
-                <!-- Desktop Navigation -->
+                <!-- Mobile menu button -->
+                <div class="flex items-center lg:hidden">
+                    <button id="mobileMenuButton" class="p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Open menu">
+                        <i class="fas fa-bars text-xl text-gray-600 dark:text-gray-300"></i>
+                    </button>
+                </div>
+                <!-- Desktop menu -->
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/index.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Home</a>
-                    <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
-                    <a href="/services.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Services</a>
-                    <a href="/contact.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
-                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/index.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Home</a>
+                    <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">About</a>
+                    <a href="/services.html" class="text-primary dark:text-blue-400 font-semibold border-b-2 border-primary dark:border-blue-400 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Services</a>
+                    <a href="/contact.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Contact</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Toggle dark mode">
                         <i class="fas fa-moon dark:hidden text-gray-600"></i>
                         <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
                     </button>
-                    <a href="/jobs.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
+                    <a href="/jobs.html" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
                         <i class="fas fa-briefcase mr-2"></i>
                         See Jobs
                     </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="flex items-center lg:hidden">
-                    <button id="mobileMenuButton" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                        <i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>
-                    </button>
+                    <a href="/submit-job.html" class="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary ml-2">
+                        <i class="fas fa-bullhorn mr-2"></i>
+                        Post a Job
+                    </a>
                 </div>
             </div>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-            <div class="px-4 py-3 space-y-3">
-                <a href="/index.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Home</a>
-                <a href="/about.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
-                <a href="/services.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Services</a>
-                <a href="/contact.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
-                <button id="mobileDarkModeToggle" class="w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <i class="fas fa-moon dark:hidden text-gray-600"></i>
-                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
-                    <span class="ml-2">Toggle Dark Mode</span>
-                </button>
-            </div>
+        <!-- Mobile full-screen overlay menu -->
+        <div id="mobileMenu" class="fixed inset-0 z-50 bg-white/95 dark:bg-gray-900/95 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold hidden opacity-0 transition-opacity duration-300">
+            <button id="closeMobileMenu" class="absolute top-6 right-6 p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Close menu">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <a href="/index.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Home</a>
+            <a href="/about.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">About</a>
+            <a href="/services.html" class="text-primary dark:text-blue-400 font-semibold border-b-2 border-primary dark:border-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Services</a>
+            <a href="/contact.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Contact</a>
+            <a href="/jobs.html" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                <i class="fas fa-briefcase mr-2"></i>
+                See Jobs
+            </a>
+            <a href="/submit-job.html" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                <i class="fas fa-bullhorn mr-2"></i>
+                Post a Job
+            </a>
         </div>
+        <script>
+            (function() {
+                var mobileMenuButton = document.getElementById('mobileMenuButton');
+                var mobileMenu = document.getElementById('mobileMenu');
+                var closeMobileMenu = document.getElementById('closeMobileMenu');
+                if (mobileMenuButton && mobileMenu && closeMobileMenu) {
+                    mobileMenuButton.addEventListener('click', function() {
+                        mobileMenu.classList.remove('hidden');
+                        setTimeout(function(){ mobileMenu.style.opacity = 1; }, 10);
+                    });
+                    closeMobileMenu.addEventListener('click', function() {
+                        mobileMenu.style.opacity = 0;
+                        setTimeout(function(){ mobileMenu.classList.add('hidden'); }, 300);
+                    });
+                    mobileMenu.querySelectorAll('a').forEach(function(link) {
+                        link.addEventListener('click', function() {
+                            mobileMenu.style.opacity = 0;
+                            setTimeout(function(){ mobileMenu.classList.add('hidden'); }, 300);
+                        });
+                    });
+                }
+            })();
+        </script>
     </nav>
 
     <main class="pt-20">
         <!-- Hero Section -->
-        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-            <div class="container mx-auto px-4 text-center" data-aos="fade-up">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
-                <p class="text-xl md:text-2xl opacity-90">Transform your business with our comprehensive automation and cloud solutions</p>
+        <section class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 md:py-20 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-full flex justify-center z-0">
+                <svg width="100%" height="48" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48V0C240 32 480 32 720 0C960 32 1200 32 1440 0V48H0Z" fill="#fff" fill-opacity="0.08"/></svg>
+            </div>
+            <div class="container mx-auto px-4 text-center relative z-10" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 md:mb-6 tracking-tight">Our Services</h1>
+                <p class="text-lg md:text-2xl opacity-90 mb-4">Transform your business with automation, cloud, and digital solutions</p>
             </div>
         </section>
 
         <!-- Services Grid -->
-        <section class="py-16">
+        <section class="py-12 md:py-20">
             <div class="container mx-auto px-4">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- RPA Solutions -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-blue-600 dark:text-blue-400 mb-4">
-                            <i class="fas fa-robot text-4xl"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <!-- Automated Solutions & Job Platform -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group focus-within:ring-2 focus-within:ring-primary hover:bg-blue-50/40 dark:hover:bg-blue-900/20" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-blue-600 dark:text-blue-400 mb-4 group-hover:animate-bounce">
+                            <i class="fas fa-robot text-5xl" aria-hidden="true"></i>
                         </div>
-                        <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">RPA Solutions</h2>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">Automate repetitive tasks and streamline your business processes with our cutting-edge RPA solutions.</p>
+                        <h2 class="text-2xl font-bold mb-1 text-gray-900 dark:text-white">Automated Solutions</h2>
+                        <div class="text-primary dark:text-blue-400 text-sm font-semibold mb-2">AI-powered recruitment, IT jobs, and data-driven hiring</div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Catalitium's automated solutions leverage <strong>AI</strong> and <strong>data-driven technology</strong> to streamline the recruitment process for employers and simplify job search for candidates. Our <a href="/jobs.html" class="text-primary hover:underline">job listing platform</a> connects top IT, data, and AI talent with leading companies, making hiring and finding tech jobs faster and smarter.
+                        </p>
                         <ul class="space-y-2 mb-6 text-gray-600 dark:text-gray-300">
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Process Automation
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Workflow Optimization
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Custom RPA Development
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                RPA Training & Support
-                            </li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Automated Job Matching</li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Process Automation</li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Workflow Optimization</li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Custom AI & Data Solutions</li>
                         </ul>
-                        <a href="contact.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
-                            Get Started
+                        <a href="/submit-job.html" class="inline-block w-full sm:w-auto bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Post a job or learn about automated hiring solutions">
+                            Post a Job / Learn More
                         </a>
                     </div>
 
                     <!-- Cloud Computing -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-blue-600 dark:text-blue-400 mb-4">
-                            <i class="fas fa-cloud text-4xl"></i>
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group focus-within:ring-2 focus-within:ring-primary hover:bg-blue-50/40 dark:hover:bg-blue-900/20" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-blue-600 dark:text-blue-400 mb-4 group-hover:animate-bounce">
+                            <i class="fas fa-cloud text-5xl"></i>
                         </div>
-                        <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Cloud Computing</h2>
+                        <h2 class="text-2xl font-bold mb-1 text-gray-900 dark:text-white">Cloud Computing</h2>
+                        <div class="text-primary dark:text-blue-400 text-sm font-semibold mb-2">Scale securely and efficiently in the cloud</div>
                         <p class="text-gray-600 dark:text-gray-300 mb-6">Leverage the power of cloud technology to scale your business operations efficiently.</p>
                         <ul class="space-y-2 mb-6 text-gray-600 dark:text-gray-300">
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Cloud Migration
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Cloud Architecture
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Cloud Security
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Cloud Optimization
-                            </li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Cloud Migration</li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Cloud Architecture</li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Cloud Security</li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Cloud Optimization</li>
                         </ul>
-                        <a href="contact.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+                        <a href="contact.html" class="inline-block w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Contact us about Cloud Computing">
                             Learn More
                         </a>
                     </div>
 
                     <!-- Digital Transformation -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-blue-600 dark:text-blue-400 mb-4">
-                            <i class="fas fa-digital-tachograph text-4xl"></i>
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group focus-within:ring-2 focus-within:ring-primary hover:bg-blue-50/40 dark:hover:bg-blue-900/20" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-blue-600 dark:text-blue-400 mb-4 group-hover:animate-bounce">
+                            <i class="fas fa-digital-tachograph text-5xl"></i>
                         </div>
-                        <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Digital Transformation</h2>
+                        <h2 class="text-2xl font-bold mb-1 text-gray-900 dark:text-white">Digital Transformation</h2>
+                        <div class="text-primary dark:text-blue-400 text-sm font-semibold mb-2">Modernize, integrate, and future-proof your business</div>
                         <p class="text-gray-600 dark:text-gray-300 mb-6">Modernize your business with our comprehensive digital transformation services.</p>
                         <ul class="space-y-2 mb-6 text-gray-600 dark:text-gray-300">
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Process Digitization
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Digital Strategy
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Technology Integration
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Change Management
-                            </li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Process Digitization</li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Digital Strategy</li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Technology Integration</li>
+                            <li class="flex items-center justify-center"><i class="fas fa-check text-green-500 mr-2"></i>Change Management</li>
                         </ul>
-                        <a href="contact.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+                        <a href="contact.html" class="inline-block w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Contact us about Digital Transformation">
                             Explore
                         </a>
                     </div>
@@ -295,11 +296,28 @@
             <div class="container mx-auto px-4 text-center" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Ready to Transform Your Business?</h2>
                 <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Contact us today to discuss how we can help streamline your operations.</p>
-                <a href="contact.html" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 text-lg">
+                <a href="contact.html" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 text-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Contact us">
                     Contact Us
                 </a>
             </div>
         </section>
+        <button id="scrollToTop" aria-label="Scroll to top" class="fixed bottom-6 right-6 z-50 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white hidden">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <script>
+            // Show/hide scroll to top button
+            var scrollBtn = document.getElementById('scrollToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollBtn.classList.remove('hidden');
+                } else {
+                    scrollBtn.classList.add('hidden');
+                }
+            });
+            scrollBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        </script>
     </main>
 
     <!-- Footer -->

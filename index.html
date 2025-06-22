@@ -134,52 +134,81 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800">
+    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-800 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="/" class="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+                    <a href="/" class="text-2xl font-bold text-gray-900 dark:text-white flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
                         <i class="fas fa-robot text-primary mr-2"></i>
                         Catalitium
                     </a>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="flex items-center lg:hidden">
-                    <button id="mobileMenuButton" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                        <i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>
+                    <button id="mobileMenuButton" class="p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Open menu">
+                        <i class="fas fa-bars text-xl text-gray-600 dark:text-gray-300"></i>
                     </button>
                 </div>
                 <!-- Desktop menu -->
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
-                    <a href="/jobs.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Jobs</a>
-                    <a href="/services.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Services</a>
-                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
-                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">About</a>
+                    <a href="/jobs.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Jobs</a>
+                    <a href="/services.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Services</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Contact</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
                         <i class="fas fa-moon dark:hidden text-gray-600"></i>
                         <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
                     </button>
-                    <a href="/jobs.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
+                    <a href="/jobs.html" class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
                         <i class="fas fa-briefcase mr-2"></i>
                         See Jobs
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-            <div class="px-4 py-3 space-y-3">
-                <a href="/about.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
-                <a href="/jobs.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Jobs</a>
-                <a href="/services.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Services</a>
-                <a href="#contact" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
-                <button id="mobileDarkModeToggle" class="w-full text-left p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <i class="fas fa-moon dark:hidden text-gray-600"></i>
-                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
-                    <span class="ml-2">Toggle Dark Mode</span>
-                </button>
-            </div>
+        <!-- Mobile full-screen overlay menu -->
+        <div id="mobileMenu" class="fixed inset-0 z-50 bg-white/95 dark:bg-gray-900/95 flex flex-col items-center justify-center space-y-8 text-2xl font-semibold hidden transition-all duration-300">
+            <button id="closeMobileMenu" class="absolute top-6 right-6 p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label="Close menu">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <a href="/about.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">About</a>
+            <a href="/jobs.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Jobs</a>
+            <a href="/services.html" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Services</a>
+            <a href="#contact" class="hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Contact</a>
+            <a href="/jobs.html" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                <i class="fas fa-briefcase mr-2"></i>
+                See Jobs
+            </a>
+            <a href="/services.html" class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 border border-gray-200 dark:border-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                <i class="fas fa-cogs mr-2"></i>
+                Our Services
+            </a>
+            <a href="/submit-job.html" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                <i class="fas fa-bullhorn mr-2"></i>
+                List a Role
+            </a>
         </div>
+        <script>
+            // Mobile menu toggle
+            (function() {
+                var mobileMenuButton = document.getElementById('mobileMenuButton');
+                var mobileMenu = document.getElementById('mobileMenu');
+                var closeMobileMenu = document.getElementById('closeMobileMenu');
+                if (mobileMenuButton && mobileMenu && closeMobileMenu) {
+                    mobileMenuButton.addEventListener('click', function() {
+                        mobileMenu.classList.remove('hidden');
+                    });
+                    closeMobileMenu.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                    mobileMenu.querySelectorAll('a').forEach(function(link) {
+                        link.addEventListener('click', function() {
+                            mobileMenu.classList.add('hidden');
+                        });
+                    });
+                }
+            })();
+        </script>
     </nav>
 
     <!-- Hero Section -->
@@ -205,6 +234,12 @@
                     <span class="flex items-center">
                         <i class="fas fa-cogs mr-2"></i>
                         <span>Our Services</span>
+                    </span>
+                </a>
+                <a href="/submit-job.html" class="group bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 flex items-center">
+                    <span class="flex items-center">
+                        <i class="fas fa-bullhorn mr-2"></i>
+                        <span>List a Role</span>
                     </span>
                 </a>
             </div>
